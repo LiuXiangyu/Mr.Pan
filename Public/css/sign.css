@@ -1,0 +1,25 @@
+.wrapper {
+    width: 100%;
+}
+
+.center-wrapper {
+    margin: 0 auto;
+    width: 740px;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 50%;
+    height: 500px;
+    margin-top: -250px;
+}
+
+.logo {
+    float:left;
+}
+
+.sign {
+    width:400px;
+    height:100%;
+    float:right;
+}
