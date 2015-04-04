@@ -14,14 +14,19 @@
             </div>
             <div class="sign">
                 <div id="signin">
-                    <form>
-                        <p>用户名：<input type="text" /></p>
-                        <p>密  码：<input type="password" /></p>
+                    <form action=<?php echo U("Home/User/login"); ?> >
+                        <p>用户名：<input type="text" name="user_email"/></p>
+                        <p>密  码：<input type="password" name="user_pwd"/></p>
                         <input type="submit" value="submit">
                     </form>
+                    <button id="newuser">
                 </div>
                 <div id="signup">
-                    <form>
+                    <form action=<?php echo U("Home/User/register"); ?> >
+                        <p>昵  称：<input type="text" name="user_name" /><p>
+                        <p>用户名：<input type="text" name="user_email"/></p>
+                        <p>密  码：<input type="password" name="user_pwd"/></p>
+                        <input type="submit" value="submit">
                     </form>
                 </div>
             </div>
@@ -29,4 +34,5 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" src="__PUBLIC__/js/sign.js">
 </html>
