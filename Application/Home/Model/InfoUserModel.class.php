@@ -22,6 +22,7 @@ class InfoUserModel extends Model{
 			array('user_email','',"该邮箱已被注册",self::EXISTS_VALIDATE,'unique'),
 
 		);
+	
 	/*
 		用户登录
 		@param 
