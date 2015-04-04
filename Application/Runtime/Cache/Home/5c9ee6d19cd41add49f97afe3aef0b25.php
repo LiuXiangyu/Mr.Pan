@@ -23,9 +23,10 @@
                 </div>
                 <div id="signup">
                     <form method="POST" action=<?php echo U("Home/User/register"); ?> >
-                        <p>昵  称：<input type="text" name="user_name" /><p>
-                        <p>用户名：<input type="text" name="user_email"/></p>
-                        <p>密  码：<input type="password" name="user_pwd"/></p>
+                        <p>昵称：<input type="text" name="user_name" /><p>
+                        <p>邮箱：<input type="text" name="user_email"/></p>
+                        <p>密码：<input type="password" name="user_pwd"/></p>
+                        <p>确认密码：<input type="password" name="user_repwd"/></p>
                         <input type="submit" value="注册">
                     </form>
                 </div>
