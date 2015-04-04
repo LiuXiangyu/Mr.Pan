@@ -14,7 +14,7 @@
             </div>
             <div class="sign">
                 <div id="signin">
-                    <form action=<?php echo U("Home/User/login"); ?> >
+                    <form method="POST" action=<?php echo U("Home/User/login"); ?> >
                         <p>用户名：<input type="text" name="user_email"/></p>
                         <p>密  码：<input type="password" name="user_pwd"/></p>
                         <input type="submit" value="登录"></input>
@@ -22,7 +22,7 @@
                     <button id="newuser">新用户</button>
                 </div>
                 <div id="signup">
-                    <form action=<?php echo U("Home/User/register"); ?> >
+                    <form method="POST" action=<?php echo U("Home/User/register"); ?> >
                         <p>昵  称：<input type="text" name="user_name" /><p>
                         <p>用户名：<input type="text" name="user_email"/></p>
                         <p>密  码：<input type="password" name="user_pwd"/></p>
@@ -34,5 +34,5 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="__PUBLIC__/js/sign.js">
+<script type="text/javascript" src="__PUBLIC__/js/sign.js"></script>
 </html>
