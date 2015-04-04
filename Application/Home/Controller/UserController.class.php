@@ -17,11 +17,13 @@ class UserController extends Controller{
 
 			$user = D("InfoUser");
 			$login_result = $user->login($data);
+			//echo $data["user_email"];
 			if ($login_result){
-				$this->redirect(U("Home/Index/index"), "", 0);
+				$this->success("登录成功", U("Home/Index/index"), 2);
+				//$this->redirect(U("Home/Index/index"), "", 0);
 			}
 			else{
-				$this->error($user->getError());
+				//$this->error($user->getError());
 			}
 		}
 		else{
@@ -45,15 +47,14 @@ class UserController extends Controller{
 			$user = D("InfoUser");
 			$register_result = $user->register($data);
 			if ($register_result){
-				$this->redirect(U("Home/Index/index"), "注册成功", 3);
+				//echo "ueue";
+				$this->success("注册成功", U("Home/Index/index"),3);
+				//$this->redirect(U("Index/index"), "注册成功", 3);
 			}
 			else{
 				$this->error($user->getError());
 			}
 		}
-		else{
-			$this->display();
-        }
 	}
 }
 
