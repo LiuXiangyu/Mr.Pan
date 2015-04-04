@@ -51,6 +51,5 @@ var handler = function() {
     signin.style.display = "none";
     signup.style.display = "block";
 }
-newuser.onclick = function(event) {
-    event = EventUtil.getEvent(event);
-}
+
+EventUtil.addHandler(newuser, "click", handler);

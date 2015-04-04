@@ -23,3 +23,7 @@
     height:100%;
     float:right;
 }
+
+#signup {
+    display: none;
+}
