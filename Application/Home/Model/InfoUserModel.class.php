@@ -22,7 +22,7 @@ class InfoUserModel extends Model{
 			array('user_email','',"该邮箱已被注册",self::EXISTS_VALIDATE,'unique'),
 
 		);
-	
+
 	/*
 		用户登录
 		@param 
@@ -62,7 +62,7 @@ class InfoUserModel extends Model{
 	*/
 	public function register($data){
 		if ($this->create($data)){ //判断数据是否符合要求
-			$this->add();
+			$this->add(); //把新数据插入数据库
 			return true;
 		}
 		else{
