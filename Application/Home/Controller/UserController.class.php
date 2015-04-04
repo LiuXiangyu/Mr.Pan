@@ -36,7 +36,7 @@ class UserController extends Controller{
 			user_email
 			user_pwd
 	*/
-	public funciton register(){
+	public function register(){
 		if (IS_POST){
 			$data["user_name"] = I("user_name");
 			$data["user_pwd"] = I("user_pwd");
@@ -56,3 +56,5 @@ class UserController extends Controller{
 		}
 	}
 }
+
+?>
