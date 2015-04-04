@@ -51,5 +51,8 @@ class UserController extends Controller{
 				$this->error($user->getError());
 			}
 		}
+		else{
+			$this->display();
+		}
 	}
 }
