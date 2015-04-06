@@ -4,8 +4,10 @@ namespace Home\Model;
 use Think\Model;
 
 class InfoSchoolModel extends Model{
-
-	public function create(){
+	/*
+		获取学校列表
+	*/
+	public function getSchool(){
 		$school_result = $this->getField('school_id,school_name', true);
 		if(!empty($school_result)&&$school_result) {
 			return $school_result;
@@ -13,7 +15,24 @@ class InfoSchoolModel extends Model{
 		else {
 			$this->error = "获取学校列表失败";
 			return false;
+		}		
+	}
+
+	/*
+		获取学校所有学院
+	*/
+	public function getCollege($school_id){
+		$result = $this->where("school_id='$school_id'")->find();
+		if (is_array($result) && !empty($result)){
+			$college_id = explode("|", $result["school_college"]);
+			foreach ($college_id as $key => $value) {
+				$college_arr[$value] = getCollegeNameById($value);
+			}
+			return $college_arr;
 		}
-		
+		else{
+			$this->error = "获取学院列表失败";
+			return false;
+		}
 	}
 }
