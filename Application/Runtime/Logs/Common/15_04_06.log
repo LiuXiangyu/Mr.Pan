@@ -1,0 +1,42 @@
+[ 2015-04-06T14:01:20+08:00 ] ::1 /Mr.Pan/?m=infoUser&v=User&c=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012035s ]
+ERR: 无法加载模块:InfoUser
+
+[ 2015-04-06T14:01:57+08:00 ] ::1 /Mr.Pan/?m=infoUser&v=User&c=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000841s ]
+ERR: 无法加载模块:InfoUser
+
+[ 2015-04-06T14:04:29+08:00 ] ::1 /Mr.Pan/index.php?m=infoUser&v=User&c=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000997s ]
+ERR: 无法加载模块:InfoUser
+
+[ 2015-04-06T14:07:16+08:00 ] ::1 /Mr.Pan/index.php?m=infoUser&v=User&c=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000940s ]
+ERR: 无法加载模块:InfoUser
+
+[ 2015-04-06T14:08:00+08:00 ] ::1 /Mr.Pan/index.php?m=InfoUser&v=User&c=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001276s ]
+ERR: 无法加载模块:InfoUser
+
+[ 2015-04-06T14:10:01+08:00 ] ::1 /Mr.Pan/index.php/InfoUser/User/User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000849s ]
+ERR: 无法加载模块:InfoUser
+
+[ 2015-04-06T14:13:45+08:00 ] ::1 /Mr.Pan/index.php?m=InfoUser&c=User&a=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000827s ]
+ERR: 无法加载模块:InfoUser
+
