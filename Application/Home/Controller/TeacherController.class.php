@@ -15,20 +15,25 @@ class TeacherController extends Controller{
 
 	public function create(){	
 		$school = D("InfoSchool");
-		$school_name = $school->create();
+		$school_name = $school->getSchool();
 		if ($school_name) {
 			$this->assign("school", $school_name);
 		}
 		else {
 			$this->error($school->getError());
 		}		
-		$this->display();
+		//$this->display();
+		if (IS_GET){
+			$school_id = I("school_id");
+			$college_arr = $school->getCollege($school_id);
+			echo json_encode($college_arr);
+		}
+
 		
-		
-		/*if (IS_POST){
+		if (IS_POST){
 			$data["teacher_name"] = I("teacher_name");
-			$data["school_id"] = I("school_id");
-			$data["college_id"] = I("college_id");
+			$data["school_id"] = I("school");
+			$data["college_id"] = I("college");
 			$data["teacher_course"] = "|";
 
 			$teacher = D("InfoTeacher");
@@ -42,8 +47,8 @@ class TeacherController extends Controller{
 			}
 		}
 		else{
-			this->display();
-		}*/
+			$this->display();
+		}
 	}
 }
 ?>

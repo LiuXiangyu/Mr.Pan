@@ -58,7 +58,7 @@ function ajax(url) {
         }
     }
     xmlhttp.open("GET", url, true);
-    xmlhttp.sent();
+    xmlhttp.send();
     return data;
 }
 

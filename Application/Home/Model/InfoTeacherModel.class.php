@@ -6,7 +6,8 @@ use Think\Model;
 class InfoTeacherModel extends Model{
 
 	public function create(){
-		$teacher_result = $this->getField('teacher_name');	
+		$teacher_result = $this->getField('teacher_name');
+		
 		return $teacher_result;	
 	}
 }
