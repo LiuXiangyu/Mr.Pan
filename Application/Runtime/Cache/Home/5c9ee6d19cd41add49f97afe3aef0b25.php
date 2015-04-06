@@ -3,8 +3,8 @@
 <head>
 <title>Mr.Pan</title>
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-<link rel="stylesheet" href="/Mr.Pan/Public/css/normalize.css">
-<link rel="stylesheet" href="/Mr.Pan/Public/css/sign.css">
+<link rel="stylesheet" href="/~liuxiangyu/Mr.Pan/Public/css/normalize.css">
+<link rel="stylesheet" href="/~liuxiangyu/Mr.Pan/Public/css/sign.css">
 </head>
 <body>
 <div class="wrapper">
@@ -35,5 +35,5 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="/Mr.Pan/Public/js/sign.js"></script>
+<script type="text/javascript" src="/~liuxiangyu/Mr.Pan/Public/js/sign.js"></script>
 </html>
