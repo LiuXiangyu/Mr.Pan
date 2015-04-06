@@ -36,3 +36,13 @@ CREATE TABLE info_follow(
 	follow_id VARCHAR(20) NOT NULL,
 	follow_type CHAR(1) NOT NULL
 );
+#---------------4.6-------------------
+CREATE TABLE info_school (
+	school_id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	school_name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE info_college (
+	college_id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	college_name VARCHAR(30) NOT NULL
+);
