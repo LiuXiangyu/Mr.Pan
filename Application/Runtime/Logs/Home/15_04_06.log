@@ -1,0 +1,23 @@
+[ 2015-04-06T20:15:26+08:00 ] ::1 /~liuxiangyu/Mr.Pan/?m=Home&c=Teacher&a=create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000288s ]
+NOTIC: [2048] Declaration of Home\Model\InfoSchoolModel::create() should be compatible with Think\Model::create($data = '', $type = '') /Users/liuxiangyu/Sites/Mr.Pan/Application/Home/Model/InfoSchoolModel.class.php 第 6 行.
+SQL: SHOW COLUMNS FROM `info_school` [ RunTime:0.0039s ]
+SQL: SELECT `school_id`,`school_name` FROM `info_school`  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016575s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016809s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.005598s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005691s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001288s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001404s ]
+
