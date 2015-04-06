@@ -44,6 +44,8 @@ class UserController extends Controller{
 			$data["user_pwd"] = I("user_pwd");
 			$data["user_repwd"] = I("user_repwd");
 			$data["user_email"] = I("user_email");
+			$data["school_id"] = 0;
+			$data["college_id"] = 0;
 
 			$user = D("InfoUser");
 			$register_result = $user->register($data); //注册结果，成功为true，失败为false
