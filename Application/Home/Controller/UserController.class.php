@@ -44,7 +44,7 @@ class UserController extends Controller{
 			$data["user_pwd"] = I("user_pwd");
 			$data["user_repwd"] = I("user_repwd");
 			$data["user_email"] = I("user_email");
-			$data["school_id"] = 0;
+			$data["school_id"] = 0;//default = 0
 			$data["college_id"] = 0;
 
 			$user = D("InfoUser");
