@@ -20,6 +20,15 @@ class InfoTeacherModel extends Model{
 		return $teacher_result;	
 	}
 	*/
+
+	/*
+	向数据库中插入一个新的老师
+	@param
+		teacher_name
+		school_id  学校ID
+		college_id  学院ID
+		teacher_course  该教师所教课程
+	*/
 	public function addTeacher($data){
 		if ($this->create($data)){
 			if ($this->add()){
