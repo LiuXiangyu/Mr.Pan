@@ -80,8 +80,7 @@ class TeacherController extends Controller{
 
 			$college = D("InfoCollege");
 			$all_college = $college->getAllCollege();  //得到所有学院的ID和名称
-			dump($all_college);
-
+			
 			$this->assign("school", $all_school);
 			$this->assign("college", $all_college);
 			$this->display();
