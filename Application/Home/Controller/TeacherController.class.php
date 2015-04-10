@@ -8,8 +8,8 @@ class TeacherController extends Controller{
 		增加老师
 		@param POST
 			teacher_name
-			school_id
-			college_id
+			school_id  学校ID
+			college_id  学院ID
 	*/
 	
 

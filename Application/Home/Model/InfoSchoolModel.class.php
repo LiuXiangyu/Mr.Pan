@@ -9,7 +9,7 @@ class InfoSchoolModel extends Model{
 	*/
 	public function getSchool(){
 		$school_result = $this->getField('school_id,school_name', true);
-		if(!empty($school_result)&&$school_result) {
+		if(is_array($school_result)) {
 			return $school_result;
 		}
 		else {
