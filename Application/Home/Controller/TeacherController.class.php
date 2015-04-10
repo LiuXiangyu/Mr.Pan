@@ -13,7 +13,7 @@ class TeacherController extends Controller{
 	*/
 	
 
-	public function create(){	
+	public function addTeacher(){	
 		$school = D("InfoSchool");
 		$school_name = $school->getSchool();
 		if ($school_name) {
@@ -21,7 +21,7 @@ class TeacherController extends Controller{
 		}
 		else {
 			$this->error($school->getError());
-		}		
+		}
 		//$this->display();
 		if (IS_GET){
 			$school_id = I("school_id");
@@ -37,13 +37,13 @@ class TeacherController extends Controller{
 			$data["teacher_course"] = "|";
 
 			$teacher = D("InfoTeacher");
-			$create_result = $teacher->create($data);
+			$create_result = $teacher->addTeacher($data);
 
 			if ($create_result){
 				$this->success("创建成功", U("Home/Index/index"), 2);
 			}
 			else{
-
+				$this->error($teacher->getError());
 			}
 		}
 		else{
