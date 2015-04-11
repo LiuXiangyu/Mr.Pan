@@ -26,7 +26,8 @@ class TeacherController extends Controller{
 		if (IS_GET){
 			$school_id = I("school_id");
 			$college_arr = $school->getCollege($school_id);
-			echo json_encode($college_arr);
+            //echo json_encode($college_arr);
+            $this->ajaxReturn($college_arr);
 		}
 
 		

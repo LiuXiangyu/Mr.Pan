@@ -44,7 +44,7 @@ var EventUtil = {
     }
 };
 
-function ajax(url) {
+function ajax(url, callback) {
     var xmlhttp;
     var data;
     if (window.XMLHttpRequest) {
@@ -55,18 +55,9 @@ function ajax(url) {
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             data = xmlhttp.responseText;
+            callback(data);
         }
     }
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-    return data;
-}
-
-function getSelectVal(url, selector) {
-    var data = ajax(url).parseJSON();
-    selector.length = 0;
-    for (var i = 0; i < data.length; ++i) {
-        var optiona = "<option value='" + data[i]['id'] + "'>" + data[i]['school_name'] + "</option>";
-        selector.appendChild(option);
-    }
 }
