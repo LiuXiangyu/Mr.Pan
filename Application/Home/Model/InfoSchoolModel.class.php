@@ -19,18 +19,18 @@ class InfoSchoolModel extends Model{
 	}
 
 	/*
-		获取学校所有学院
+		获取对应学校ID所有学院名字
 	*/
 	public function getCollege($school_id){
 		$result = $this->where("school_id='$school_id'")->find();
 		$college_id = explode("|", $result["school_college"]);
-		$college_arr = array();
-		echo $school_id;
-		dump($result);
-		foreach ($college_id as $key => $value) {
-			echo $value;
-			//$college_arr[$value] = getCollegeNameById($value);
+		$college_name = array();
+
+		foreach($college_id as $id){
+			$name = getCollegeNameById($id); //根据学院ID得到学院名
+			array_push($college_name, $name);
 		}
-        return $college_arr;
+
+        return $college_name;
 	}
 }

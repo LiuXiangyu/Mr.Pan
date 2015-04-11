@@ -80,11 +80,7 @@ class TeacherController extends Controller{
 			$school = D("InfoSchool");
 			$all_school = $school->getSchool(); //得到所有学校的ID和名称
 
-			$college = D("InfoCollege");
-			$all_college = $college->getAllCollege();  //得到所有学院的ID和名称
-			
 			$this->assign("school", $all_school);
-			$this->assign("college", $all_college);
 			$this->display();
 		}
 	}
@@ -94,8 +90,10 @@ class TeacherController extends Controller{
 		$school_id = I("school_id");
 		$school_id = 1;
 		$college_arr = $school->getCollege($school_id);
-		//echo "sdf";
+		//dump($college_arr);
+		//echo $school_id;
 		//echo json_encode($college_arr);
+		$this->ajaxReturn($college_arr);
 	}
 }
 ?>
