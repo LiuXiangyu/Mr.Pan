@@ -59,12 +59,7 @@ class TeacherController extends Controller{
 			college_id  学院ID
 	*/
 	public function addTeacher(){
-		if (IS_GET){
-			$school = D("InfoSchool");
-			$school_id = I("school_id");
-			$college_arr = $school->getCollege($school_id);
-			echo json_encode($college_arr);
-		}
+
 		else if (IS_POST){
 			$data["teacher_name"] = I("teacher_name");
 			$data["school_id"] = I("school_id");
@@ -92,6 +87,15 @@ class TeacherController extends Controller{
 			$this->assign("college", $all_college);
 			$this->display();
 		}
+	}
+
+	public function getCollege(){
+		$school = D("InfoSchool");
+		$school_id = I("school_id");
+		$school_id = 1;
+		$college_arr = $school->getCollege($school_id);
+		//echo "sdf";
+		//echo json_encode($college_arr);
 	}
 }
 ?>
