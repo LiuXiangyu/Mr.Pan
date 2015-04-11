@@ -1,7 +1,5 @@
 var school = document.getElementById("school");
 var college = document.getElementById("college");
-//var baseurl = "/Mr.Pan/?m=Home&c=Teacher&a=create?school_id=";
-var baseurl = <?php  echo U("Home/Teacher/addTeacher"); ?>;
 function getSelectVal(url, selector) {
     ajax(url, function(data) {
         jsondata = data.parseJSON();

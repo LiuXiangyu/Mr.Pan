@@ -30,7 +30,7 @@
 	</form>
 </body>
 <script text="text/javascript">
-var baseurl = {:U("/Home/Teacher/addTeacher?school_id=")};
+  var baseurl = "<?php echo U('/Home/Teacher/addTeacher'); ?>" + "?school_id=";
 </script>
 <script text="text/javascript" src="__PUBLIC__/js/general.js"></script>
 <script text="text/javascript" src="__PUBLIC__/js/create.js"></script>
