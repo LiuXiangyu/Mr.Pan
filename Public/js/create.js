@@ -6,7 +6,9 @@ function getSelectVal(url, selector) {
         var jsondata = eval('(' + data + ')');
         selector.length = 0;
         for (var i = 0; i < jsondata.length; ++i) {
-            var optiona = "<option value='" + jsondata[i]['id'] + "'>" + jsondata[i]['school_name'] + "</option>";
+            var option = document.createElement("option");
+            option.value = jsondata[i]['id'];
+            option.text = jsondata[i]['school_name'];
             selector.appendChild(option);
         }
     });
