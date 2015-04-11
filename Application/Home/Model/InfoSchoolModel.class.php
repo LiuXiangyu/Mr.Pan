@@ -25,12 +25,14 @@ class InfoSchoolModel extends Model{
 		$result = $this->where("school_id='$school_id'")->find();
 		$college_id = explode("|", $result["school_college"]);
 		$college_name = array();
-
+		$colleges = array();
 		foreach($college_id as $id){
 			$name = getCollegeNameById($id); //根据学院ID得到学院名
-			$college_name[$id] = $name;
+			$tmp["id"] = $id;
+			$tmp["school_name"] = $name;
+			array_push($colleges, $tmp);
 		}
 
-        return $college_name;
+        return $colleges;
 	}
 }
