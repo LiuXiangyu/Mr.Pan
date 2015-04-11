@@ -7,8 +7,7 @@ use Home\Model\InfoCollegeModel;
 return $college_name;
 */
 function getCollegeNameById($college_id){
-	$college = new InfoCollegeModel;
-	$college_name = $college->where("college_id='$college_id")->getField("college_name");
-	//$college_name = "dsf";
+	$college = M("InfoCollege");
+	$college_name= $college->where("college_id='$college_id'")->getField("college_name");
 	return $college_name;	
 }

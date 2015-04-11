@@ -90,8 +90,8 @@ class TeacherController extends Controller{
 		$school_id = I("school_id");
 		$school_id = 1;
 		$college_arr = $school->getCollege($school_id);
-		//echo "sdf";
-		echo json_encode($college_arr);
+	
+		//echo json_encode($college_arr);
 		$this->ajaxReturn($college_arr);
 	}
 }

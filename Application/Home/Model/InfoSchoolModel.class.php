@@ -24,7 +24,12 @@ class InfoSchoolModel extends Model{
 	public function getCollege($school_id){
 		$result = $this->where("school_id='$school_id'")->find();
 		$college_id = explode("|", $result["school_college"]);
-		dump($college_id);
-        return $college_id;
+		$college_name = array();
+		foreach($college_id as $id){
+			$name = getCollegeNameById($id);
+			array_push($college_name, $name);
+		}
+		dump($college_name);
+        return $college_name;
 	}
 }
