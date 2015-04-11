@@ -2,8 +2,7 @@ var school = document.getElementById("school");
 var college = document.getElementById("college");
 function getSelectVal(url, selector) {
     ajax(url, function(data) {
-        console.log(data);
-        var jsondata = eval('(' + data + ')');
+        var jsondata = JSON.decode(data);
         selector.length = 0;
         for (var i = 0; i < jsondata.length; ++i) {
             var option = document.createElement("option");
