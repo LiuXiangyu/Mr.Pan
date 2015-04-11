@@ -60,7 +60,7 @@ class TeacherController extends Controller{
 	*/
 	public function addTeacher(){
 
-		else if (IS_POST){
+		if (IS_POST){
 			$data["teacher_name"] = I("teacher_name");
 			$data["school_id"] = I("school_id");
 			$data["college_id"] = I("college_id"); 
