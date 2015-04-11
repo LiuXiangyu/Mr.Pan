@@ -65,7 +65,6 @@ class TeacherController extends Controller{
 			$college_arr = $school->getCollege($school_id);
 			echo json_encode($college_arr);
 		}
-
 		else if (IS_POST){
 			$data["teacher_name"] = I("teacher_name");
 			$data["school_id"] = I("school_id");
