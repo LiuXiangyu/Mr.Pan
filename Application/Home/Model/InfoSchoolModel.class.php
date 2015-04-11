@@ -28,7 +28,7 @@ class InfoSchoolModel extends Model{
 
 		foreach($college_id as $id){
 			$name = getCollegeNameById($id); //根据学院ID得到学院名
-			array_push($college_name, $name);
+			$college_name[$id] = $name;
 		}
 
         return $college_name;

@@ -88,11 +88,12 @@ class TeacherController extends Controller{
 	public function getCollege(){
 		$school = D("InfoSchool");
 		$school_id = I("school_id");
-		$school_id = 1;
+		//$school_id = 2;
 		$college_arr = $school->getCollege($school_id);
 		//dump($college_arr);
 		//echo $school_id;
 		//echo json_encode($college_arr);
+		//dump($college_arr);
 		$this->ajaxReturn($college_arr);
 	}
 }
