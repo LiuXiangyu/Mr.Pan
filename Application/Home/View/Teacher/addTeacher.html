@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="text/stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="text/stylesheet" href="__PUBLIC__/css/create.css">
+</head>
+<body>
+	<form action=<?php echo U("addTeacher") ?> method="post">
+		<p>学校：<select id="school" name="school_id">
+			<option selected="selected">---</option>
+		<?php foreach ($school as $key => $value): ?>
+			<option value=<?php echo $key ?> >
+				<?php echo $value ?>
+			</option> 			
+		<?php endforeach;?>
+		</select></p>
+
+		<p>学院：<select id="college" name="college_id">
+			<option selected="selected">---</option>
+		<?php foreach ($college as $key => $value): ?>
+			<option value=<?php echo $key ?> >
+				<?php echo $value ?>
+			</option> 			
+		<?php endforeach;?>
+		</select></p>
+
+		<p>姓名：<input type="text" name="teacher_name"></input></p>
+		<p><input type="submit" value="确认" /></p>
+	</form>
+</body>
+<script text="text/javascript">
+var baseurl = {:U("/Home/Teacher/addTeacher?school_id=")};
+</script>
+<script text="text/javascript" src="__PUBLIC__/js/general.js"></script>
+<script text="text/javascript" src="__PUBLIC__/js/create.js"></script>
+</html>

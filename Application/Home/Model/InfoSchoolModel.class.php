@@ -9,11 +9,11 @@ class InfoSchoolModel extends Model{
 	*/
 	public function getSchool(){
 		$school_result = $this->getField('school_id,school_name', true);
-		if(!empty($school_result)&&$school_result) {
+		if(is_array($school_result)) {
 			return $school_result;
 		}
 		else {
-			$this->error = "获取学校列表失败";
+			$this->error = "获取学校列表dfs失败";
 			return false;
 		}		
 	}
@@ -23,7 +23,7 @@ class InfoSchoolModel extends Model{
 	*/
 	public function getCollege($school_id){
 		$result = $this->where("school_id='$school_id'")->find();
-		if (is_array($result) && !empty($result)){
+		if (is_array($result) && $result){
 			$college_id = explode("|", $result["school_college"]);
 			foreach ($college_id as $key => $value) {
 				$college_arr[$value] = getCollegeNameById($value);
@@ -31,7 +31,7 @@ class InfoSchoolModel extends Model{
             $this->ajaxReturn($college_arr);
 		}
 		else{
-			$this->error = "获取学院列表失败";
+			$this->error = "获取学院列df表失败";
 			return false;
 		}
 	}
