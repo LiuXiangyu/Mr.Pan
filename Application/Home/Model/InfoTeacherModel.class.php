@@ -9,7 +9,7 @@ class InfoTeacherModel extends Model{
 	protected $_validate = array(
 		/*  验证老师名字 */
 		array('teacher_name', 'require', "用户名必须提供"),
-		array('teacher_name','4,20',"用户名长度必须为4到20个字符",self::EXISTS_VALIDATE,'length'),
+		array('teacher_name','1,20',"用户名长度必须为4到20个字符",self::EXISTS_VALIDATE,'length'),
 
 	);
 

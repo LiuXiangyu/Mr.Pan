@@ -32,6 +32,14 @@ class UserController extends Controller{
 	}
 
 	/*
+		用户登出
+	*/
+	public function logout(){
+		$user = D("InfoUser");
+		$user->logout();
+	}
+
+	/*
 		用户注册
 		@param  POST
 			user_name
@@ -54,8 +62,23 @@ class UserController extends Controller{
 			}
 			else{
 				$this->error($user->getError());
+
 			}
 		}
+	}
+
+	/*
+		读取三天以来的所有评论
+	*/
+	public function readComment(){
+		$date = date("Y-m-d H:i:s", strtotime("-3 day"));
+		$comment = M("InfoComment");
+
+		$comment_data = $comment->where("comment_time>='$date'")->select();
+		dump($comment_data);
+
+		$this->assign("comment", $comment_data);
+		$this->display();
 	}
 }
 

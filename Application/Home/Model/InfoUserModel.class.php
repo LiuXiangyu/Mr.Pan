@@ -54,6 +54,16 @@ class InfoUserModel extends Model{
 	}
 
 	/*
+		用户登出
+	*/
+	public function logout(){
+		session("user_name", null);
+		session("user_id", null);
+		session("user_level", null);
+		session("user_email", null);
+	}
+
+	/*
 		用户注册
 		@param
 			user_name
