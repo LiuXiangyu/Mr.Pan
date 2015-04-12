@@ -4,6 +4,13 @@ use Home\Model\InfoCollegeModel;
 use Home\Model\InfoUserModel;
 use Home\Model\InfoSchoolModel;
 
+function isLogin(){
+	if ($_SESSION['user_name'] != null && $_SESSION['user_name'] != "")
+		return true;
+	else
+		return false;
+}
+
 /*  
 	通过college_id来获得college_name
 	@param $college_id
