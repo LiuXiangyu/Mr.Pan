@@ -15,13 +15,13 @@ class InfoCommentModel extends Model{
 	/*
 	添加评论
 	$param
-			user_id
-			course_id
-			teacher_id
-			school_id
-			college_id
-			comment_content
-			comment_time
+		user_id
+		course_id
+		teacher_id
+		school_id
+		college_id
+		comment_content
+		comment_time
 	*/
 	public function addComment($data){
 		if ($this->create($data)){
@@ -36,4 +36,5 @@ class InfoCommentModel extends Model{
 			return false;
 		}
 	}
+	
 }

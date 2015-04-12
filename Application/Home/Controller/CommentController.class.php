@@ -15,7 +15,7 @@ class CommentController extends Controller{
 	*/
 	public function addComment(){
 		if (IS_POST){
-			if (isLogin()){
+			if (isLogin()){ //判断是否登录
 				$data['course_id'] = I("course_id");
 				$data['teacher_id'] = I("teacher_id");
 				$data['school_id'] = I("school_id");
@@ -39,8 +39,50 @@ class CommentController extends Controller{
 			}
 
 		}
-		else{
+	}
+
+	/*
+		查看自己的所有评论
+	*/
+	public function manageComment(){
+		if (isLogin()) { //判断是否登录
+			$user_id = $_SESSION['user_id']; //获取自己的user_id
+			$comment = M("InfoComment");
+
+			$data = $comment->where("user_id='$user_id'")->select();
+			foreach($data as $key => &$value){
+				$value['teacher_name'] = getTeacherNameById($value['teacher_id']);
+				$value['school_name'] = getSchoolNameById($value['school_id']);
+				$value['user_name'] = getUserNameById($value['user_id']);
+				$value['course_name'] = getCourseNameById($value['course_id']);
+			}
+			$this->assign("comment", $data);
 			$this->display();
+		}
+		else{
+			$this->error("请先登录", U("User/login"),3);
+		}
+	}
+
+	/*
+		删除一条评论
+		$param
+			comment_id
+	*/
+	public function deleteComment(){
+		if (isLogin()){
+			$comment_id = I("comment_id");
+			$comment = M("InfoComment");
+
+			if ($comment->where("comment_id='$comment_id'")->delete()) {
+				$this->success("删除成功");
+			}
+			else{
+				$this->error("删除失败");
+			}
+		}
+		else{
+			$this->error("请先登录", U("User/login"));
 		}
 	}
 }
