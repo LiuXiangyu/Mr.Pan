@@ -59,36 +59,40 @@ class TeacherController extends Controller{
 			college_id  学院ID
 	*/
 	public function addTeacher(){
+		if (isLogin()) { //判断是否登录
+			if (IS_POST){
+				$data["teacher_name"] = I("teacher_name");
+				$data["school_id"] = I("school_id");
+				$data["college_id"] = I("college_id"); 
+				$data["teacher_course"] = I("teacher_course");
 
-		if (IS_POST){
-			$data["teacher_name"] = I("teacher_name");
-			$data["school_id"] = I("school_id");
-			$data["college_id"] = I("college_id"); 
-			$data["teacher_course"] = I("teacher_course");
+				$teacher = D("InfoTeacher");
+				$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
 
-			$teacher = D("InfoTeacher");
-			$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
-
-			if ($add_result){ //判断插入是否成功
-				$this->success("创建成功");
+				if ($add_result){ //判断插入是否成功
+					$this->success("创建成功");
+				}
+				else{
+					$this->error($teacher->getError());
+				}
 			}
 			else{
-				$this->error($teacher->getError());
+				$school = D("InfoSchool");
+				$all_school = $school->getSchool(); //得到所有学校的ID和名称
+
+				$this->assign("school", $all_school);
+				$this->display();
 			}
 		}
 		else{
-			$school = D("InfoSchool");
-			$all_school = $school->getSchool(); //得到所有学校的ID和名称
-
-			$this->assign("school", $all_school);
-			$this->display();
+			$this->error("请先登录", U("User/login"));
 		}
 	}
 
 	public function getCollege(){
 		$school = D("InfoSchool");
 		$school_id = I("school_id");
-		//$school_id = 2;
+
 		$college_arr = $school->getCollege($school_id);
 		//dump($college_arr);
 		//echo $school_id;
