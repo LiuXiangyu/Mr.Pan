@@ -1,0 +1,165 @@
+Home/Controller
+
+---------------------------------------------------------
+Home/Controller/UserController
+---------------------------------------------------------
+login 
+用途：用于用户登录
+method:POST
+前端传到后端：
+	user_email  用户邮箱
+	user_pwd  用户密码
+
+后端传到前端：
+	无
+
+登录成功后：
+	设置SESSION['user_name'] = user_name
+		SESSION['user_id'] = user_id
+		SESSION['user_level'] = user_level
+		SESSION['user_email'] = user_email
+	重定向到  Home/Index/index
+	
+---------------------------------------------------------
+logout  
+用途：用户注销
+method:无
+前端传到后端：
+	无
+后端传到前端：
+	无
+注销成功后：
+	设置SESSION['user_name'] = null
+		SESSION['user_id'] = null
+		SESSION['user_level'] = null
+		SESSION['user_email'] = null
+
+---------------------------------------------------------
+register  
+用途：用户注册
+method:POST
+前端传到后端：
+	user_name
+	user_pwd
+	user_repwd   //确认密码
+	user_email
+	school_id  //学校ID
+	college_id //学院ID
+后端传到前端：
+	无
+注册成功后：
+	跳转到 Home/Index/index
+
+---------------------------------------------------------
+Home/Controller/TeacherController
+---------------------------------------------------------
+
+addTeacher  
+用途：添加老师词条
+method:POST
+前端传到后端：
+	teacher_name
+	school_id   //学校ID
+	college_id  //学院ID
+	teacher_course  //老师所教科目
+
+后端传到前端：
+	array(  //所有学校的信息
+		array(
+			'school_id':value,
+			'school_name':value,
+			'school_college':value
+		)
+	)
+添加成功后：
+	无
+---------------------------------------------------------
+
+getCollege
+用途：添加老师时动态显示每个学校的所有学院
+method:ajax
+前端传到后端：
+	school_id
+后端传到前端：
+	array(
+		array(
+			'id':value  //学院ID
+			'school_name':value
+		)
+	)
+
+---------------------------------------------------------
+Home/Controller/CommentController
+---------------------------------------------------------
+
+addComment
+用途：添加一条评论
+method:POST
+前端传到后端：
+	course_id  //被评论老师的课程ID
+	teacher_id  //被评论老师ID
+	school_id  //被评论老师所在学校ID
+	college_id  //被评论老师所在学院ID
+	comment_content  //评论内容
+后端传到前端：
+	无
+添加成功后：
+	跳转到Home/Index/index
+---------------------------------------------------------
+manageComment
+用途：查看自己的所有评论
+method:无
+前端传到后端：
+	无
+后端传到前端：
+	array(
+		array(
+			'comment_id':value,
+			'course_id':value,
+			'teacher_id':value,
+			'user_id':value,
+			'comment_time':value
+			'comment_content':value
+			'teacher_name':value
+			'school_name':value
+			'user_name':value
+			'course_name':value
+		)
+	)
+前端显示每条评论的teacher_name, course_name, school_name, comment_content, comment_time和删除这条评论的按钮
+---------------------------------------------------------
+deleteComment
+用途：删除一条自己评论
+method:GET
+前端传到后端：
+	comment_id
+后端传到前端：
+	无
+
+---------------------------------------------------------
+Home/Controller/IndexController
+---------------------------------------------------------
+
+index
+用途：显示前三天的所有评论
+method:无
+前端传到后端：
+	无
+后端传到前端：
+	array(
+		array(
+			'comment_id':value,
+			'course_id':value,
+			'teacher_id':value,
+			'user_id':value,
+			'comment_time':value
+			'comment_content':value
+			'teacher_name':value
+			'school_name':value
+			'user_name':value
+			'course_name':value
+		)
+	)
+前端显示每条评论的teacher_name, course_name, school_name, comment_content, comment_time，user_name
+
+---------------------------------------------------------

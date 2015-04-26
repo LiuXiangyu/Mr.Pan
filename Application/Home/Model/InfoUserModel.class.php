@@ -48,7 +48,7 @@ class InfoUserModel extends Model{
 			}
 		}
 		else{
-			$this->error = "用户名不存在";
+			$this->error = "邮箱不存在";
 			return false;
 		}
 	}
