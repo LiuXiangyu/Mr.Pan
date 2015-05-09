@@ -32,6 +32,14 @@ class UserController extends Controller{
 	}
 
 	/*
+		用户登出
+	*/
+	public function logout(){
+		$user = D("InfoUser");
+		$user->logout();
+	}
+
+	/*
 		用户注册
 		@param  POST
 			user_name
@@ -54,9 +62,12 @@ class UserController extends Controller{
 			}
 			else{
 				$this->error($user->getError());
+
 			}
 		}
 	}
+
+	
 }
 
 ?>

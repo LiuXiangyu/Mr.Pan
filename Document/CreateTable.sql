@@ -48,3 +48,8 @@ CREATE TABLE info_school(
 	school_name VARCHAR(30) NOT NULL,
 	school_college VARCHAR(500) NOT NULL
 );
+
+CREATE TABLE info_course(
+	course_id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	course_name VARCHAR(30) NOT NULL
+);

@@ -1,8 +1,26 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+
 class IndexController extends Controller {
+	/*
+		读取前三天的所有评论
+	*/
     public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover,{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+    	$date = date("Y-m-d H:i:s", strtotime("-3 day")); //前三天时间
+		$comment = M("InfoComment");
+
+		$comment_data = $comment->where("comment_time>='$date'")->limit(30)->select(); //读取前三天的30条评论
+
+		foreach($comment_data as $key => &$value){
+			$value['teacher_name'] = getTeacherNameById($value['teacher_id']);
+			$value['school_name'] = getSchoolNameById($value['school_id']);
+			$value['user_name'] = getUserNameById($value['user_id']);
+			$value['course_name'] = getCourseNameById($value['course_id']);
+		}
+		//dump($comment_data);
+
+		$this->assign("comment", $comment_data);
+		$this->display();
     }
 }

@@ -48,9 +48,19 @@ class InfoUserModel extends Model{
 			}
 		}
 		else{
-			$this->error = "用户名不存在";
+			$this->error = "邮箱不存在";
 			return false;
 		}
+	}
+
+	/*
+		用户登出
+	*/
+	public function logout(){
+		session("user_name", null);
+		session("user_id", null);
+		session("user_level", null);
+		session("user_email", null);
 	}
 
 	/*
