@@ -7,6 +7,11 @@ class IndexController extends Controller {
 		读取前三天的所有评论
 	*/
     public function index(){
+   
+		$this->display();
+    }
+
+    public function getComment(){
     	$date = date("Y-m-d H:i:s", strtotime("-3 year")); //前三天时间
 		$comment = M("InfoComment");
 
@@ -19,9 +24,6 @@ class IndexController extends Controller {
 			$value['user_name'] = getUserNameById($value['user_id']);
 			$value['course_name'] = getCourseNameById($value['course_id']);
 		}
-		//dump($comment_data);
-
-		$this->assign("comment", $comment_data);
-		$this->display();
+		$this->ajaxReturn($comment_data);
     }
 }
