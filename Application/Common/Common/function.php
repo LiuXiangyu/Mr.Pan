@@ -69,3 +69,9 @@ function getCourseNameById($course_id){
 
 	return $name;
 }
+
+function getSchoolIdByTeacherId($teacher_id){
+	$teacher = M("InfoTeacher");
+	$id = $teacher->where("teacher_id='$teacher_id'")->getField("school_id");
+	return $id;
+}
