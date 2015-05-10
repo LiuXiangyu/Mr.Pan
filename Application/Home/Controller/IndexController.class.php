@@ -3,14 +3,14 @@ namespace Home\Controller;
 use Think\Controller;
 
 class IndexController extends Controller {
-	/*
-		读取前三天的所有评论
-	*/
+	
     public function index(){
-   
 		$this->display();
     }
-
+    
+    /*
+		读取前三天的所有评论
+	*/
     public function getComment(){
     	$date = date("Y-m-d H:i:s", strtotime("-3 year")); //前三天时间
 		$comment = M("InfoComment");
