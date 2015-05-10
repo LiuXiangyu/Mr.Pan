@@ -1,3 +1,7 @@
+body {
+  background-color:#1abc9c;
+}
+
 .wrapper {
     width: 100%;
 }
@@ -10,18 +14,26 @@
 .form-wrapper {
     position: absolute;
     top: 50%;
-    height: 500px;
-    margin-top: -250px;
+    height: 300px;
+    margin-top: -150px;
 }
 
 .logo {
     float:left;
+    width:400px;
+    color: white;
+    font-size: 100px;
 }
 
 .sign {
     width:400px;
     height:100%;
     float:right;
+    color: white;
+}
+
+.sign input, button {
+  color:black;
 }
 
 #signup {
