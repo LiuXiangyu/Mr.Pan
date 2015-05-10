@@ -1,4 +1,5 @@
-function getNewMessages(messages) {
+function getNewMessages(data) {
+    var messages = JSON.decode(data);
     for (var i = 0; i < messages.length; ++i) {
         putNewMessage(messages[i]);
     }

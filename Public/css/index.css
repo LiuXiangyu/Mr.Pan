@@ -1,28 +1,32 @@
 .top-bar {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 45px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 45px;
 }
 
 .main {
-    min-height: 340px;
-    padding: 25px 0px 50px;
-    position: relative;
-    z-index: 2;
-    width: 960px;
-    margin: 0 auto;
-    clear: both;
+  min-height: 340px;
+  padding: 25px 0px 50px;
+  position: relative;
+  z-index: 2;
+  width: 960px;
+  margin: 0 auto;
+  clear: both;
 }
 
 .content {
-    float: left;
-    width: 100%;
+  float: left;
+  width: 100%;
 }
 
 .sidebar {
-    float: left;
-    margin: 0 0 0 -270px;
-    width: 270px;
+  float: left;
+  margin: 0 0 0 -270px;
+  width: 270px;
+}
+
+#main {
+  margin-top: 50px;
 }
