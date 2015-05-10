@@ -7,7 +7,7 @@ function getNewMessages(messages) {
 function putNewMessage(message) {
     var feed = document.createElement("div");
     var user = document.createElement("span");
-    user.html(message["user_name"];
+    user.html(message["user_name"]);
     var teacher = document.createElement("span");
     teacher.html(message["teacher_name"]);
     var course = document.createElement("span");
