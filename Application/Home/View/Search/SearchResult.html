@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link ref="stylesheet" href="__PUBLIC__/css/normalize.css" />
+    <link ref="stylesheet" href="__PUBLIC__/css/general.css" />
+    <link ref="stylesheet" href="__PUBLIC__/css/search.css" />
+  </head>
+  <body>
+    <div id="top-bar">
+      <div class="wrap">
+        <div class="top-bar-left">
+          <span class="logo">Mr.Pan</span>
+          <input type="search" />
+          <input type="button" value="serach" />
+        </div>
+        <div class="top-bar-right">
+          <span class="username"><?php echo session("user_name"); ?></span>
+        </div>
+      </div>
+    </div>
+    <div class="wrap" id="main">
+      <ul id="nav" class="nav nav-tabs">
+        <li class="active"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab">找老师</a></li>
+        <li><a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">找课程</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="teachers" class="tab-pane active">
+          teachers
+        </div>
+        <div id="courses" class="tab-pane">
+          courses
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var baseurl = "";
+    </script>
+    <script typr="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/JSON.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+  </body>
+</html>
