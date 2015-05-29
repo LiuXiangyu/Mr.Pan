@@ -22,22 +22,23 @@ class IndexController extends Controller {
 		if (isLogin()) { //判断是否登录
 			$this->showRecentComment();
 			if (IS_POST){
-
-				$this->success("创建成功");
-
 				$data["school_id"] = I("school_id");
 				$data["college_id"] = I("college_id"); 
 				$data["teacher_id"] = I("teacher_id");
 				$data["course_id"] = I("course_id");
-				$data["user_id"] = I("liu");
+				$data["user_id"] = session("user_id");
+				$data["comment_content"] = I("comment_content");
+
 				//$teacher = D("InfoTeacher");
 				//$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
+				$comment = D("InfoComment");
+				$add_result = $comment->addComment($data);
 
 				if ($add_result){ //判断插入是否成功
 					$this->success("创建成功");
 				}
 				else{
-					$this->error($teacher->getError());
+					$this->error($comment->getError());
 				}
 			} else if (IS_AJAX) {
 				if (I("action") == 'a') {
