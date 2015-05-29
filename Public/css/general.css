@@ -1,29 +1,159 @@
-.wrap {
-  width: 960px;
-  margin: 0 auto;
+body {
+	font-style: Helvetica,Arial,sans-serif;	
 }
 
+.wrap {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+}
+
+/* ========= sytle of top bar ========= */
 #top-bar {
-  position:fixed;
-  top:0;
-  width: 100%;
-  height: 45px;
-  background-color:#1abc9c;
+	position:fixed;
+	top:0;
+	width: 100%;
+	height: 45px;
+	color: white;
+	background-color:#1abc9c;
+	z-index: 10000;
+}
+
+#top-bar input {
+	margin: 0 0 0 15px;
 }
 
 .top-bar-left {
-  float: left;
+	float: left;
 }
 
 .top-bar-right {
-  float: right;
+	float: right;
 }
 
 .logo {
-  color: white;
-  font-size: 30px;
+	color: white;
+	font-size: 30px;
+	position: relative;
+	top: 5px;
+	margin: 0px 30px 0px 130px;
+}
+
+.logo a {
+	color: white;
+	font-size: 30px;
+	text-decoration: none;
 }
 
 .username {
-  color: white;
+	position: relative;
+	top: 15px;
+	color: white;
 }
+
+.searchkey {
+	color: black;
+	padding-left: 0px;
+}
+
+.searchbtn {
+	font-family: arial,verdana,sans-serif; 
+	font-weight: bold; 
+	color: white; 
+	text-decoration:none; 
+	border: 0px solid #097b8a; 
+	cursor: pointer;
+	background-color: #09ab7a;
+}
+
+.searchbtn:hover {
+	background: #297b8a;
+}
+
+.searchbtn:active {
+	background: #297b8a;
+}
+
+/* ========= sytle of top bar ========= */
+
+/* ========= sytle of comments ========= */
+
+.comment {
+	font: 16px Helvetica,Arial,sans-serif;
+  	line-height: 1.62;
+}
+
+.content {
+	border-bottom: 1px dashed #ddd;
+}
+.content h3 {
+	color: #1abc9c;
+}
+
+.time {
+	padding-left: 20px;
+	font: 18px Arial,Helvetica,sans-serif;
+  	color: #666;
+}
+
+.info2 {
+	float: right;
+}
+
+.info2 span {
+	text-align: right;
+}
+/* ========= sytle of comments ========= */
+#main {
+	margin-top: 80px;
+}
+
+#formid {
+	padding-left: 0px;
+	border-bottom: 1px solid #eee;
+}
+
+#formid select {
+	width: 130px;
+}
+
+#formid #txt {
+	margin: 20px 0 0 70px;
+}
+
+#formid span {
+	position: relative;
+	left: 60px;
+	margin: 10px 20px 30px 10px;
+}
+
+#addbtn {
+	position: relative;
+	left: 792px;
+	width: 100px;
+	height: 30px;
+}
+
+#pagenav {
+	text-align: center;
+}
+
+#pagenav span {
+	position: relative;
+	top: 50px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: green;
+	text-decoration: underline;
+}
+
+#pagenav span:hover {
+	cursor: pointer;
+}
+
+.curpage {
+	background-color: green;
+	color: white !important;
+}
+
+

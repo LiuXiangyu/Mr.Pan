@@ -18,7 +18,6 @@ class UserController extends Controller{
 			$user = D("InfoUser");
 			$login_result = $user->login($data); //登录结果，成功为true，失败为false
 
-			
 			if ($login_result){
 				$this->success("登录成功", U("Home/Index/index"), 2);
 			}

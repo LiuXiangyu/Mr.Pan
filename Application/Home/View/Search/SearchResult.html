@@ -1,45 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link ref="stylesheet" href="__PUBLIC__/css/normalize.css" />
-    <link ref="stylesheet" href="__PUBLIC__/css/general.css" />
-    <link ref="stylesheet" href="__PUBLIC__/css/search.css" />
-  </head>
-  <body>
-    <div id="top-bar">
-      <div class="wrap">
-        <div class="top-bar-left">
-          <span class="logo">Mr.Pan</span>
-          <input type="search" />
-          <input type="button" value="serach" />
-        </div>
-        <div class="top-bar-right">
-          <span class="username"><?php echo session("user_name"); ?></span>
-        </div>
-      </div>
-    </div>
-    <div class="wrap" id="main">
-      <ul id="nav" class="nav nav-tabs">
-        <li class="active"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab">找老师</a></li>
-        <li><a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">找课程</a></li>
-      </ul>
-      <div class="tab-content">
-        <div id="teachers" class="tab-pane active">
-          teachers
-        </div>
-        <div id="courses" class="tab-pane">
-          courses
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-      var baseurl = "";
-    </script>
-    <script typr="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/js/JSON.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
-  </body>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+		<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+		<link rel="stylesheet" href="__PUBLIC__/css/search.css">
+	</head>
+
+	<body>
+		<div id="top-bar">
+			<div class="wrap">
+				<div class="top-bar-left">
+					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
+						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
+						<input type="search" name="keyword" class="searchkey"/>
+						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
+						<input type="radio" name="searchType" value="course" />&nbsp课程
+						<input type="submit" value="serach" class="searchbtn"/>
+					</form>
+				</div>
+				<div class="top-bar-right">
+					<span class="username"><?php echo session("user_name"); ?></span>
+				</div>
+			</div>
+		</div>
+		<div class="wrap" id="main">
+
+			<!--
+			<?php foreach ($comment as $num => $record): ?>
+			<ul>
+				<li><?php echo $record["college"] ?></li>
+				<li><?php echo $record["school"] ?></li>
+				<li><?php echo $record["content"] ?></li>
+			</ul>
+			<?php endforeach;?>
+			-->
+			<!--Search Result-->
+			<?php foreach ($comment as $num => $record): ?>
+				<div id="comment">
+					<div class="comment_item" >
+		    			<div class="content">
+		        			<h3>
+		        				<span class="info1">
+		            				<span class="comment_username"><?php echo $record["username"] ?></span>
+		            				<span class="time"><?php echo $record["time"] ?></span>
+		            			</span>
+		            			<span class="info2">
+		                			<span class="comment_school"><?php echo $record["school"] ?></span>
+		                			<span class="comment_college"><?php echo $record["college"] ?></span>
+		                			<span class="comment_teacher"><?php echo $record["teacher"] ?></span>
+		                			<span class="comment_course"><?php echo $record["course"] ?></span>
+		                		</span>
+		                			
+		        			</h3>
+		        			<p class=""><?php echo $record["content"] ?>
+		        			</p>
+		    			</div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+			<div id="pagenav">
+        	</div>
+			<!--Search Result-->
+
+
+			<!--
+			<ul id="nav" class="nav nav-tabs">
+				<li class="active"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab">找老师</a></li>
+				<li><a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">找课程</a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="teachers" class="tab-pane active">
+					teachers
+				</div>
+				<div id="courses" class="tab-pane">
+					courses
+				</div>
+			</div>
+			-->
+		</div>
+		<script type="text/javascript">
+			var eles = document.getElementsByClassName('comment_' + '<?php echo $searchType ?>');
+			for (var i = 0; i < eles.length; ++i) {
+				eles[i].style.color = 'red';
+			}
+		</script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/JSON.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/search.js"></script>
+	</body>
 </html>

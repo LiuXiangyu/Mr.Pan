@@ -1,34 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="__PUBLIC__/css/normalize.css" />
-    <link rel="stylesheet" href="__PUBLIC__/css/general.css" />
-    <link rel="stylesheet" href="__PUBLIC__/css/index.css" />
-  </head>
-  <body>
-    <div id="top-bar">
-      <div class="wrap">
-        <div class="top-bar-left">
-          <span class="logo">Mr.Pan</span>
-          <input type="search" />
-          <input type="button" value="serach" />
-        </div>
-        <div class="top-bar-right">
-          <span class="username"><?php echo session("user_name"); ?></span>
-        </div>
-      </div>
-    </div>
-    <div class="wrap" id="main">
-      <div id="feeds">
-      </div>
-    </div>
-    <script type="text/javascript">
-      var baseurl = "<?php echo U('Home/Index/getComment'); ?>";
-    </script>
-    <script  type="text/javascript" src="__PUBLIC__/js/JSON.js"></script>
-    <script  type="text/javascript" src="__PUBLIC__/js/general.js"></script>
-    <script  type="text/javascript" src="__PUBLIC__/js/index.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/normalize.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+	</head>
+	<body>
+		<div id="top-bar">
+			<div class="wrap">
+				<div class="top-bar-left">
+					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
+						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
+						<input type="search" name="keyword" class="searchkey"/>
+						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
+						<input type="radio" name="searchType" value="course" />&nbsp课程
+						<input type="submit" value="serach" class="searchbtn"/>
+					</form>
+				</div>
+				<div class="top-bar-right">
+					<span class="username"><?php echo session("user_name"); ?></span>
+				</div>
+			</div>
+		</div>
+		<div class="wrap" id="main">
+			<form action=<?php echo U("index") ?> method="post" id="formid">
+				<span>学校：<select id="school" name="school_id">
+					<option selected="selected" value="0">---</option>
+				<?php foreach ($school as $key => $value): ?>
+					<option value=<?php echo $key ?> >
+						<?php echo $value ?>
+					</option> 			
+				<?php endforeach;?>
+				</select></span>
+	
+				<span>学院：<select id="college" name="college_id">
+					<option selected="selected" value="0">---</option>
+				</select></span>
+	
+				<span>教师：<select id="teacher" name="teacher_id">
+					<option selected="selected" value="0">---</option>
+				</select></span>
+	
+				<span>课程：<select id="course" name="course_id">
+					<option selected="selected" value="0">---</option>
+				</select></span>
+	
+				<div id="txt">
+					<textarea name="comment_content" rows="6" cols="100" onfocus="if (value =='请填写评论..'){value =''}"
+	    				onblur="if (value ==''){value='请填写评论..'}" >请填写评论..</textarea>
+	    		</div>
+				<p><input type="submit" value="确认" id="addbtn"/></p>
+			</form>
+			
+			<!--
+			<div id="comment">
+				<div class="comment_item" >
+	    			<div class="content">
+	        			<h3>
+	        				<span class="info1">
+	            				<span class="comment_username">用户</span>
+	            				<span class="time">2014-07-22</span>
+	            			</span>
+	            			<span class="info2">
+	                			<span class="comment_school">学校</span>
+	                			<span class="comment_college">学院</span>
+	                			<span class="comment_teacher">教师</span>
+	                			<span class="comment_course">课程</span>
+	                		</span>
+	                			
+	        			</h3>
+	        			<p class=""> 摆足了他能摆出的一切姿态和这个世界谈谈，想告诉人们他眼中的这个世界的样子。可他不知道他看到的这一切与别人看到的其实没啥区别。他想要证明自己并不平庸，却恰恰印证了一个时代的平庸。PS：好听的歌都不是原创，原创的歌都不好听。
+	        			</p>
+	    			</div>
+				</div>
+			</div>
+			-->
+			
+			<?php foreach ($comment as $num => $record): ?>
+				<div id="comment">
+					<div class="comment_item" >
+		    			<div class="content">
+		        			<h3>
+		        				<span class="info1">
+		            				<span class="comment_username"><?php echo $record["username"] ?></span>
+		            				<span class="time"><?php echo $record["time"] ?></span>
+		            			</span>
+		            			<span class="info2">
+		                			<span class="comment_school"><?php echo $record["school"] ?></span>
+		                			<span class="comment_college"><?php echo $record["college"] ?></span>
+		                			<span class="comment_teacher"><?php echo $record["teacher"] ?></span>
+		                			<span class="comment_course"><?php echo $record["course"] ?></span>
+		                		</span>
+		                			
+		        			</h3>
+		        			<p class=""><?php echo $record["content"] ?>
+		        			</p>
+		    			</div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+
+			<div id="pagenav">
+        	</div>
+			<!--
+			<?php foreach ($comment as $num => $record): ?>
+			<ul>
+				<li>a<?php echo $record["comment_content"] ?></li>
+				<li>b<?php echo $record["teacher_id"] ?></li>
+			</ul>
+			<?php endforeach; ?>
+			-->
+			<div id="feeds">
+				© 2015－2016 mrpan.com, all rights reserved 
+			</div>
+		</div>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+		<script	type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+		<script	type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+	</body>
 </html>

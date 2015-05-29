@@ -12,6 +12,23 @@ class InfoCommentModel extends Model{
 
 	);
 
+	public function transform($result) {
+		$comments = array();
+		foreach($result as $m => $record) {
+			$tmp["content"] = $record["comment_content"];
+			$tmp["time"] = $record["comment_time"];
+			$tmp["username"] = getUserNameById($record["user_id"]);
+			$tmp["teacher"] = getTeacherNameById($record["teacher_id"]);
+			$tmp["course"] = getCourseNameById($record["course_id"]);
+			$tmp["school"] = getSchoolNameById($record["course_id"]);
+			$tmp["college"] = getCollegeNameById($record["college_id"]);
+			array_push($comments, $tmp);
+		}
+		return $comments;
+	}
+
+
+
 	/*
 	添加评论
 	$param
@@ -36,5 +53,45 @@ class InfoCommentModel extends Model{
 			return false;
 		}
 	}
+
+	public function getRecentComment($date) {
+		$result = $this->where("comment_time>='$date'")->limit(30)->select(); //读取前三天的30条评论
+		if(is_array($result)) {
+			return $this->transform($result);
+		}
+		else {
+			$this->error = "搜索评论失败";
+			return false;
+		}
+	}
+
+
+	public function searchCommentByTeacher($teacher_id) {
+		$cond = "teacher_id=" . implode(" OR teacher_id=", $teacher_id);//condition: teacher_id=a OR teacher_id=b OR teacher_id=c
+
+		$result = $this->where($cond)->select();
+		if(is_array($result)) {
+			return $this->transform($result);
+		}
+		else {
+			$this->error = "搜索评论失败";
+			return false;
+		}
+	}
+
+	public function searchCommentByCourse($course_id) {
+		$cond = "course_id=" . implode(" OR course_id=", $course_id);
+
+		$result = $this->where($cond)->select();
+		if(is_array($result)) {
+			return $this->transform($result);
+		}
+		else {
+			$this->error = "搜索评论失败";
+			return false;
+		}
+	}
 	
 }
+?>
+

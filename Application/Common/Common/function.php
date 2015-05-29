@@ -75,3 +75,40 @@ function getSchoolIdByTeacherId($teacher_id){
 	$id = $teacher->where("teacher_id='$teacher_id'")->getField("school_id");
 	return $id;
 }
+
+/*
+	通过教师名来获得教师ID列表
+	$param
+		teacher_name
+*/
+function getTeacherIdByName($teacher_name){
+	$teacher = M("InfoTeacher");
+	$result = $teacher->where("teacher_name='$teacher_name'")->field('teacher_id')->select();
+	$names = array();
+	foreach ($result as $n => $record) {
+		array_push($names, $record['teacher_id']);
+	}
+	return $names;
+}
+
+/*
+	通过课程名来获得课程ID列表
+	$param
+		course_name
+*/
+function getCourseIdByName($course_name){
+	$course = M("InfoCourse");
+	$result = $course->where("course_name='$course_name'")->field('course_id')->select();
+	$names = array();
+	foreach ($result as $n => $record) {
+		array_push($names, $record['course_id']);
+	}
+	return $names;
+}
+
+
+
+
+
+
+

@@ -10,53 +10,6 @@ class TeacherController extends Controller{
 			teacher_name
 			school_id  学校ID
 			college_id  学院ID
-	
-	public function addTeacher(){	
-		$school = D("InfoSchool");
-		$school_name = $school->getSchool();
-		if ($school_name !== false) {
-			$this->assign("school", $school_name);
-		}
-		else {
-			$this->error($school->getError());
-		}
-		//$this->display();
-		if (IS_GET){
-			$school_id = I("school_id");
-			$college_arr = $school->getCollege($school_id);
-            //echo json_encode($college_arr);
-            $this->ajaxReturn($college_arr);
-		}
-
-		
-		if (IS_POST){
-			$data["teacher_name"] = I("teacher_name");
-			$data["school_id"] = I("school");
-			$data["college_id"] = I("college");
-			$data["teacher_course"] = "|";
-
-			$teacher = D("InfoTeacher");
-			$create_result = $teacher->addTeacher($data);
-
-			if ($create_result){
-				$this->success("创建成功", U("Home/Index/index"), 2);
-			}
-			else{
-				$this->error($teacher->getError());
-			}
-		}
-		else{
-			$this->display();
-		}
-	}
-	*/
-
-	/*
-		增加老师
-		@param POST
-			teacher_name
-			school_id  学校ID
-			college_id  学院ID
 	*/
 	public function addTeacher(){
 		if (isLogin()) { //判断是否登录
@@ -75,12 +28,18 @@ class TeacherController extends Controller{
 				else{
 					$this->error($teacher->getError());
 				}
+			} else if (IS_AJAX) {
+				$school = D("InfoSchool");
+				$school_id = I("school_id"); //通过选择的学校返回学校的所有学院名称
+				$all_college = $school->getCollege(intval($school_id));
+				$json = json_encode($all_college);
+				$this->ajaxReturn($json);
+				$this->display();
 			}
 			else{
-				$school = D("InfoSchool");
-				$all_school = $school->getSchool(); //得到所有学校的ID和名称
-
-				$this->assign("school", $all_school);
+				$school = D("InfoSchool"); //连接学校信息表，以获取全部学校名称
+				$all_school = $school->getSchool(); //在Model中的定义，得到所有学校的ID和名称
+				$this->assign("school", $all_school); //传给view
 				$this->display();
 			}
 		}
@@ -89,16 +48,6 @@ class TeacherController extends Controller{
 		}
 	}
 
-	public function getCollege(){
-		$school = D("InfoSchool");
-		$school_id = I("school_id");
 
-		$college_arr = $school->getCollege($school_id);
-		//dump($college_arr);
-		//echo $school_id;
-		//echo json_encode($college_arr);
-		//dump($college_arr);
-		$this->ajaxReturn($college_arr);
-	}
 }
 ?>

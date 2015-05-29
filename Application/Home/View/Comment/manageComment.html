@@ -1,4 +1,40 @@
+<!DOCTYPE html>
 <html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/comment.css">
+</head>
 <body>
+	<div id="top-bar">
+      <div class="wrap">
+        <div class="top-bar-left">
+          <form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
+            <span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
+            <input type="search" name="keyword" class="searchkey"/>
+            <input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
+            <input type="radio" name="searchType" value="course" />&nbsp课程
+            <input type="submit" value="serach" class="searchbtn"/>
+          </form>
+        </div>
+        <div class="top-bar-right">
+          <span class="username"><?php echo session("user_name"); ?></span>
+        </div>
+      </div>
+    </div>
+ 	<div class="wrap" id="main">
+   		<div id="feeds">
+
+    	</div>
+  	</div>
 </body>
+<!--
+<script type="text/javascript">
+  var baseurl = "<?php echo U('/Home/Teacher/addTeacher'); ?>" + "?school_id=";
+</script>
+-->
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
 </html>

@@ -43,4 +43,54 @@ class InfoTeacherModel extends Model{
 			return false;
 		}
 	}
+
+	/*
+	通过学校的id和学院的id查找并返回该学校学院所有老师的id和名字
+	@param
+		school_id  学校ID
+		college_id  学院ID
+	*/
+
+	public function getTeacher($school_id, $college_id) {
+		$result = $this->where("school_id='$school_id' AND college_id='$college_id'")->field('teacher_id')->select();
+
+		if(is_array($result)) {
+			$teachers = array();
+			foreach($result as $m => $record){
+				foreach($record as $n => $id) {
+					$name = getTeacherNameById($id); //根据教师ID得到教师名
+					$tmp["teacher_id"] = $id;
+					$tmp["teacher_name"] = $name;
+					array_push($teachers, $tmp);
+				}
+			}
+			return $teachers;	
+		}
+		else {
+			$this->error = "获取教师列表失败";
+			return false;
+		}		
+	}
+
+	public function getCourse($school_id, $college_id, $teacher_id) {
+		$result = $this->where("school_id='$school_id' AND college_id='$college_id' AND teacher_id='$teacher_id'")->find();
+
+		if(is_array($result)) {
+			$courses = array();
+			$course_id = explode("|", $result['teacher_course']);
+			foreach($course_id as $m => $id) {
+				$name = getCourseNameById($id); //根据教师ID得到教师名
+				$tmp["course_id"] = $id;
+				$tmp["course_name"] = $name;
+				array_push($courses, $tmp);
+			}
+			return $courses;	
+		}
+		else {
+			$this->error = "获取课程列表失败";
+			return false;
+		}
+	}
 }
+
+

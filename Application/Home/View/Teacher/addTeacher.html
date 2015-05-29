@@ -2,37 +2,62 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-	<link rel="text/stylesheet" href="__PUBLIC__/css/normalize.css">
-	<link rel="text/stylesheet" href="__PUBLIC__/css/create.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/create.css">
 </head>
 <body>
-	<form action=<?php echo U("addTeacher") ?> method="post">
-		<p>学校：<select id="school" name="school_id">
-			<option selected="selected">---</option>
-		<?php foreach ($school as $key => $value): ?>
-			<option value=<?php echo $key ?> >
-				<?php echo $value ?>
-			</option> 			
-		<?php endforeach;?>
-		</select></p>
+	<div id="top-bar">
+      	<div id="top-bar">
+			<div class="wrap">
+				<div class="top-bar-left">
+					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
+						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
+						<input type="search" name="keyword" class="searchkey"/>
+						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
+						<input type="radio" name="searchType" value="course" />&nbsp课程
+						<input type="submit" value="serach" class="searchbtn"/>
+					</form>
+				</div>
+				<div class="top-bar-right">
+					<span class="username"><?php echo session("user_name"); ?></span>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="wrap" id="main">
+  		<form action=<?php echo U("addTeacher") ?> method="post" id="formid">
+			<span>学校：<select id="school" name="school_id">
+				<option selected="selected" value="0">---</option>
+			<?php foreach ($school as $key => $value): ?>
+				<option value=<?php echo $key ?> >
+					<?php echo $value ?>
+				</option> 			
+			<?php endforeach;?>
+			</select></span>
 
-		<p>学院：<select id="college" name="college_id">
-			<option selected="selected">---</option>
-		<?php foreach ($college as $key => $value): ?>
-			<option value=<?php echo $key ?> >
-				<?php echo $value ?>
-			</option> 			
-		<?php endforeach;?>
-		</select></p>
+			<span>学院：<select id="college" name="college_id">
+				<option selected="selected" value="0">---</option>
+			</select></span>
 
-		<p>姓名：<input type="text" name="teacher_name"></input></p>
-		<p><input type="submit" value="确认" /></p>
-	</form>
+			<span>姓名：<input type="text" name="teacher_name" id="name"></input></span>
+			<div id="txt">
+				<textarea name="textarea" rows="6" cols="100" onfocus="if (value =='请输入教师简介..'){value =''}"
+    				onblur="if (value ==''){value='请输入教师简介..'}" >请输入教师简介..</textarea>
+    		</div>
+			<p><input type="submit" value="确认" id="addbtn"/></p>
+		</form>
+      	<div id="feeds">
+      	</div>
+    </div>
+
 </body>
+<!--
 <script type="text/javascript">
-  var baseurl = "<?php echo U('/Home/Teacher/getCollege'); ?>" + "?school_id=";
+  var baseurl = "<?php echo U('/Home/Teacher/addTeacher'); ?>" + "?school_id=";
 </script>
-<script type="text/javascript" src="__PUBLIC__/js/JSON.js"></script>
+-->
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
 <script type="text/javascript" src="__PUBLIC__/js/create.js"></script>
 </html>
