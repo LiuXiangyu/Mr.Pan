@@ -19,28 +19,35 @@ class IndexController extends Controller {
     }
 
     public function index(){
-		if (isLogin()) { //判断是否登录
-			$this->showRecentComment();
+		
+		$this->showRecentComment();
+		
 			if (IS_POST){
-				$data["school_id"] = I("school_id");
-				$data["college_id"] = I("college_id"); 
-				$data["teacher_id"] = I("teacher_id");
-				$data["course_id"] = I("course_id");
-				$data["user_id"] = session("user_id");
-				$data["comment_content"] = I("comment_content");
+				if (isLogin()) { //判断是否登录
+					$data["school_id"] = I("school_id");
+					$data["college_id"] = I("college_id"); 
+					$data["teacher_id"] = I("teacher_id");
+					$data["course_id"] = I("course_id");
+					$data["user_id"] = session("user_id");
+					$data["comment_content"] = I("comment_content");
 
-				//$teacher = D("InfoTeacher");
-				//$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
-				$comment = D("InfoComment");
-				$add_result = $comment->addComment($data);
+					//$teacher = D("InfoTeacher");
+					//$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
+					$comment = D("InfoComment");
+					
+					$add_result = $comment->addComment($data);
 
-				if ($add_result){ //判断插入是否成功
-					$this->success("创建成功");
+					if ($add_result){ //判断插入是否成功
+						$this->success("创建成功");
+					}
+					else{
+						$this->error($comment->getError());
+					}
 				}
 				else{
-					$this->error($comment->getError());
+					$this->error("请先登录", U("User/login"));
 				}
-			} else if (IS_AJAX) {
+			} else if (IS_AJAX) {  //Ajax
 				if (I("action") == 'a') {
 					$school = D("InfoSchool");
 					$school_id = I("school_id"); //通过选择的学校返回学校的所有学院名称
@@ -72,10 +79,8 @@ class IndexController extends Controller {
 				$this->assign("school", $all_school); //传给view
 				$this->display();
 			}
-		}
-		else{
-			$this->error("请先登录", U("User/login"));
-		}
+		
+		
 	}
 }
 

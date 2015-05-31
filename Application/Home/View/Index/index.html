@@ -6,6 +6,9 @@
 		<link rel="stylesheet" href="__PUBLIC__/css/normalize.css" />
 		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
 		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+		
+		
 	</head>
 	<body>
 		<div id="top-bar">
@@ -20,14 +23,32 @@
 					</form>
 				</div>
 				<div class="top-bar-right">
-					<span class="username"><?php echo session("user_name"); ?></span>
+					<?php  if (isLogin()) { ?>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
+							<ul class="dropdown-menu">
+		                       	<li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a></li>
+		                  	</ul>
+						</li>
+						<li>
+							<a href="<?php echo U('User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
+						</li>
+					</ul>
+					<?php }  else { ?>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="<?php echo U('User/login')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 登陆</a>
+							</li>
+						</ul>		
+					<?php } ?>
 				</div>
 			</div>
 		</div>
 		<div class="wrap" id="main">
 			<form action=<?php echo U("index") ?> method="post" id="formid">
 				<span>学校：<select id="school" name="school_id">
-					<option selected="selected" value="0">---</option>
+					<option selected="selected" value="">---</option>
 				<?php foreach ($school as $key => $value): ?>
 					<option value=<?php echo $key ?> >
 						<?php echo $value ?>
@@ -36,15 +57,15 @@
 				</select></span>
 	
 				<span>学院：<select id="college" name="college_id">
-					<option selected="selected" value="0">---</option>
+					<option selected="selected" value="">---</option>
 				</select></span>
 	
 				<span>教师：<select id="teacher" name="teacher_id">
-					<option selected="selected" value="0">---</option>
+					<option selected="selected" value="">---</option>
 				</select></span>
 	
 				<span>课程：<select id="course" name="course_id">
-					<option selected="selected" value="0">---</option>
+					<option selected="selected" value="">---</option>
 				</select></span>
 	
 				<div id="txt">
@@ -119,5 +140,6 @@
 		<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
 		<script	type="text/javascript" src="__PUBLIC__/js/general.js"></script>
 		<script	type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/bootstrap-dropdown.js"></script>
 	</body>
 </html>

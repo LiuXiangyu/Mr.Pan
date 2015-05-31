@@ -36,6 +36,7 @@ class UserController extends Controller{
 	public function logout(){
 		$user = D("InfoUser");
 		$user->logout();
+		$this->success("注销成功", U("Home/Index/index"));
 	}
 
 	/*

@@ -6,6 +6,10 @@ class InfoCommentModel extends Model{
 
 	protected $_validate = array(
 		array('user_id', 'require', "请先登录"),
+		array('school_id', 'require', "请选学校"),
+		array('college_id', 'require', "请选学院"),
+		array('course_id', 'require', "请选课程"),
+		array('teacher_id', 'require', "请选老师"),
 		array('comment_time', 'require', '发表时间获取出错'),
 		array('comment_content', 'require', '评论内容不能为空'),
 		array('comment_content', '1,500', '评论内容不能超过500字数', self::EXISTS_VALIDATE, 'length'),
@@ -41,6 +45,7 @@ class InfoCommentModel extends Model{
 		comment_time
 	*/
 	public function addComment($data){
+	
 		if ($this->create($data)){
 			if ($this->add($data))
 				return true;
