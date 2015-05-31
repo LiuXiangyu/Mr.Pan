@@ -9,6 +9,7 @@ class InfoUserModel extends Model{
 	protected $_validate = array(
 		/*  验证用户名 */
 		array('user_name', 'require', "用户名必须提供"),
+		array('user_name','',"该用户名已被注册",self::EXISTS_VALIDATE,'unique'),
 		array('user_name','4,20',"用户名长度必须为4到20个字符",self::EXISTS_VALIDATE,'length'),
 
 		/* 验证密码 */
@@ -77,6 +78,19 @@ class InfoUserModel extends Model{
 			}
 			else{  //插入新数据失败
 				$this->error = "注册用户失败";
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
+	}
+	public function updateInfo($data){
+		if ($this->create($data)){
+			if ($this->save($data))
+				return true;
+			else{
+				$this->error = "修改失败";
 				return false;
 			}
 		}

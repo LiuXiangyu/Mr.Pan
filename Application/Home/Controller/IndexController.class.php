@@ -30,7 +30,8 @@ class IndexController extends Controller {
 					$data["course_id"] = I("course_id");
 					$data["user_id"] = session("user_id");
 					$data["comment_content"] = I("comment_content");
-
+					if ($data["comment_content"] == ">请填写评论..")
+						$data["comment_content"] = "";
 					//$teacher = D("InfoTeacher");
 					//$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
 					$comment = D("InfoComment");

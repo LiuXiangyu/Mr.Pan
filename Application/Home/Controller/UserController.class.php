@@ -67,7 +67,50 @@ class UserController extends Controller{
 		}
 	}
 
-	
+	public function showInfo(){
+		if (isLogin()){
+			$user_id = $_SESSION["user_id"];
+			$user = M("InfoUser");
+			$data = $user->where("user_id='$user_id'")->find();
+			//dump($data);
+			$this->assign("userdata", $data);
+			$this->display();
+		}
+		else{
+			$this->error("请先登录", U("User/login"));
+		}
+	}
+
+	public function updateInfo(){
+		if (isLogin()){
+			$user = D("InfoUser");
+			$user_id = $_SESSION['user_id'];
+			$userdata = $user->where("user_id='$user_id'")->find();
+			$this->assign("userdata", $userdata);
+			if (IS_POST){
+				$data["user_id"] = $_SESSION['user_id'];
+				$data["user_name"] = I("user_name");
+				$data["user_pwd"] = I("user_pwd");
+				$data["user_email"] = I("user_email");
+
+				
+				$result = $user->updateInfo($data);
+
+				if ($result){
+					$this->success("修改成功", U("User/showInfo"));
+				}
+				else{
+					$this->error($user->getError());
+				}
+			}
+			else{
+				$this->display();
+			}
+		}
+		else{
+			$this->error("请先登录", U("User/login"));
+		}
+	}
 }
 
 ?>
