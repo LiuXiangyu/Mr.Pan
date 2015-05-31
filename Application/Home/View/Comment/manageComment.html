@@ -51,6 +51,7 @@
                             <span class="comment_college"><?php echo $record["college"] ?></span>
                             <span class="comment_teacher"><?php echo $record["teacher"] ?></span>
                             <span class="comment_course"><?php echo $record["course"] ?></span>
+                            <span class="comment_course"><a href="<?php echo U('Comment/deleteComment').'?comment_id='.$record['comment_id']; ?>"<button  class="btn btn-default">删除</button> </a></span>
                           </span>
                             
                     </h3>
