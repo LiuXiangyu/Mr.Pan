@@ -111,6 +111,7 @@
 		            				<span class="comment_username"><?php echo $record["username"] ?></span>
 		            				<span class="time"><?php echo $record["time"] ?></span>
 		            				<span class="time"><a href="<?php echo U('User/follow').'?user_id='.$record['user_id']; ?>">+关注 </a></span>
+		            				<span class="time"><a href="<?php echo U('Comment/report').'?user_id='.$record['user_id'].'&comment_id='.$record['comment_id']; ?>">举报 </a></span>
 		            			</span>
 		            			<span class="info2">
 		                			<span class="comment_school"><?php echo $record["school"] ?></span>

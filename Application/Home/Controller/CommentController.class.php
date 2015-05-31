@@ -78,4 +78,23 @@ class CommentController extends Controller{
 			$this->error("请先登录", U("User/login"));
 		}
 	}
+
+	/*
+	举报评论
+	@param
+		comment_id
+		user_id
+	*/
+	public function report(){
+		if (isLogin()){
+			$data['user_id'] = I("user_id");
+			$data['comment_id'] = I("comment_id");
+			
+			$report = D("InfoReport");
+			$result = $report->addReport($data);
+			$this->redirect("Home/Index/index");
+		}
+		else
+			$this->error("请先登录", U("User/login"));
+	}
 }

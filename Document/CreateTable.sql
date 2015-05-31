@@ -4,7 +4,7 @@ USE db_tc;
 
 CREATE TABLE info_user(
 	user_id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	user_level CHAR(1) NOT NULL DEFAULT 'a',
+	user_level INT NOT NULL DEFAULT 1,
 	user_email VARCHAR(40) NOT NULL,
 	user_pwd VARCHAR(40) NOT NULL,
 	user_name VARCHAR(20) NOT NULL,
