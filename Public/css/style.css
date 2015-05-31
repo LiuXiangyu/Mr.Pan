@@ -1,0 +1,142 @@
+/*修改：刘冠志
+  日期：2014/10/16
+*/
+* {
+	font-family: "Microsoft Yahei";
+}
+#banner {
+	font-family: "Microsoft Yahei";
+	text-align: center;
+}
+
+.sidebar {
+	position: fixed;
+	top:35px;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	display: block;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #f5f5f5;
+	border-right: 1px solid #eee;
+}
+.nav-sidebar {
+	margin-right: -21px;
+	margin-bottom: 20px;
+	margin-left: -20px;
+ }
+ .nav-sidebar > li > a {
+ 	padding-right: 20px;
+ 	padding-left: 20px;
+ }
+ .nav-sidebar > .active > a,
+ .nav-sidebar > .active > a:hover,
+ .nav-sidebar > .active > a:focus {
+ 	color: #fff;
+ 	background-color: #009966;
+ }
+.nav-sidebar> li .dropdown-menu {
+	margin-top: -50px;
+	margin-left: -20px;
+}
+
+.dropdown-menu1{
+  position:absolute;
+  top:100%;left:0;
+  z-index:1000;
+  display:none;
+  float:right;
+  min-width:160px;
+  padding:5px 0;
+  margin:2px 0 0;
+  font-size:14px;
+  text-align:left;
+  list-style:none;
+  background-color:#fff;
+  -webkit-background-clip:padding-box;
+  background-clip:padding-box;
+  border:1px solid #ccc;
+  border:1px solid rgba(0,0,0,.15);
+  border-radius:4px;
+  -webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);
+  box-shadow:0 6px 12px rgba(0,0,0,.175)
+}
+.tabbable{
+  background-color: #fff;
+  margin-bottom: 200px;
+}
+
+ #allmap {
+ 	width: 100%;
+ 	height: 855px;
+ 	overflow: hidden;
+ }
+
+ .table{
+ 	margin-top: 40px;
+ }
+
+ caption{
+ 	font-size: 20px;
+ }
+
+ .add{
+ 	margin-top: 50px;
+ 	margin-left: 300px;
+ }
+ .add1{
+  margin-top: 100px;
+  margin-left: 450px;
+ }
+
+ #city{
+ 	margin-top: 100px;
+ }
+
+.list-group-item span{
+	margin-left: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1050;
+  width: 550px;
+  height: 200px;
+  margin: -250px 0 0 -280px;
+  overflow: auto;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  *border: 1px solid #999;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}
+
+.modal-header .close {
+  margin-top: 0px;
+}
+
+.count{
+  background: #FF3300;
+  width: 12px;
+  height: 12px;
+  padding: 0 3px 2px;
+  margin-left: -6px;
+  z-index: 1;
+  font-family: Arial;
+}
+
+.bb{
+  text-align:center;
+}

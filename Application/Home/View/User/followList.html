@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/comment.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/DT_bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css"/>
+</head>
+<body>
+	<div id="top-bar">
+      <div class="wrap">
+        <div class="top-bar-left">
+          <form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
+            <span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
+            <input type="search" name="keyword" class="searchkey"/>
+            <input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
+            <input type="radio" name="searchType" value="course" />&nbsp课程
+            <input type="submit" value="serach" class="searchbtn"/>
+          </form>
+        </div>
+        <div class="top-bar-right">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                            <li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a></li>
+                            <li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
+                            <li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-cog"></i> 我的关注</a>
+                        </ul>
+            </li>
+            <li>
+              <a href="<?php echo U('User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<div class="wrap" id="main">
+    <div class="container">
+    <table class="bordered-table zebra-striped" id="example">
+        <caption>水稻信息</caption>
+        <thead>
+            <tr>
+                <th>用户名</th>
+              <th>邮箱</th>
+              <th>学院</th>
+              <th>学校</th>
+              <th>操作</th>
+          </tr>
+       </thead>
+       <tbody>
+            <?php foreach ($data as $key => $value): ?>
+            <tr>
+                <td><?php echo $value['username']?></td>
+                <td><?php echo $value['user_email']?></td>
+                <td><?php echo $value['collegename']?></td>
+                <td><?php echo $value['schoolname']?></td>
+              
+                <td>
+                  <a href="__URL__/../Comment/followComment?user_id=<?php  echo $value['follow_id']; ?>" class="btn btn-warning" role="button">所有评论</a>
+                </td>
+              </tr>
+          <?php endforeach;?>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/demo.js"></script>
+    </body>
+    </html>

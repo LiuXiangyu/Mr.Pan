@@ -26,7 +26,6 @@
               <ul class="dropdown-menu">
                             <li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a></li>
                             <li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
-                            <li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-cog"></i> 我的关注</a>
                         </ul>
             </li>
             <li>
@@ -52,9 +51,6 @@
                             <span class="comment_college"><?php echo $record["college"] ?></span>
                             <span class="comment_teacher"><?php echo $record["teacher"] ?></span>
                             <span class="comment_course"><?php echo $record["course"] ?></span>
-                            <span class="comment_course"><a href="<?php echo U('Comment/deleteComment').'?comment_id='.$record['comment_id']; ?>"<button  class="btn btn-default">删除</button> </a></span>
-                          </span>
-                            
                     </h3>
                     <p class=""><?php echo $record["comment_content"] ?>
                     </p>

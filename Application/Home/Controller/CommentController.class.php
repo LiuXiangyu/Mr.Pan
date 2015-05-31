@@ -32,6 +32,32 @@ class CommentController extends Controller{
 	}
 
 	/*
+		查看关注者的所有评论
+	*/
+	public function followComment(){
+		if (isLogin()) { //判断是否登录
+			
+			$user_id = I('user_id'); //获取自己的user_id
+			$comment = M("InfoComment");
+			
+			$data = $comment->where("user_id='$user_id'")->select();
+
+			foreach($data as $key => &$value){
+				$value['teacher'] = getTeacherNameById($value['teacher_id']);
+				$value['school'] = getSchoolNameById($value['school_id']);
+				$value['username'] = getUserNameById($value['user_id']);
+				$value['course'] = getCourseNameById($value['course_id']);
+			}
+			//dump($data);
+			$this->assign("comment", $data);
+			$this->display();
+		}
+		else{
+			$this->error("请先登录", U("User/login"),3);
+		}
+	}
+
+	/*
 		删除一条评论
 		$param
 			comment_id

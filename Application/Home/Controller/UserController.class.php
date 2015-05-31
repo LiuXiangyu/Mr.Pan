@@ -130,6 +130,30 @@ class UserController extends Controller{
 			$this->error("请先登录", U("User/login"));
 		}
 	}
+
+	public function followList(){
+		if (isLogin()){
+			$user_id = $_SESSION["user_id"];
+			$follow = M("InfoFollow");
+			$followlist = $follow->where("user_id='$user_id'")->select();
+			$user = M("InfoUser");
+
+			foreach($followlist as $key => &$value){
+				$value["username"] = getUserNameById($value['follow_id']);
+				$follow_id = $value["follow_id"];
+				$data = $user->where("user_id='$follow_id'")->find();
+				$value["schoolname"] = getSchoolNameById($data["school_id"]);
+				$value["collegename"] = getCollegeNameById($data['college_id']);
+				$value["user_email"] = $data["user_email"];
+			}
+			$this->assign("data", $followlist);
+
+			$this->display();
+		}
+		else{
+			$this->error("请先登录", U("User/login"));
+		}
+	}
 }
 
 ?>
