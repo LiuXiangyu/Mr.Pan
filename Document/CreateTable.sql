@@ -34,6 +34,7 @@ CREATE TABLE info_comment(
 );
 
 CREATE TABLE info_follow(
+	id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	user_id VARCHAR(20) NOT NULL,
 	follow_id VARCHAR(20) NOT NULL,
 	follow_type CHAR(1) NOT NULL

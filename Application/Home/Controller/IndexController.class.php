@@ -15,6 +15,7 @@ class IndexController extends Controller {
     	$date = date("Y-m-d H:i:s", strtotime("-3 day")); //前三天时间
 		$comment = D("InfoComment");
 		$comment_data = $comment->getRecentComment($date);
+
 		$this->assign('comment', $comment_data);
     }
 

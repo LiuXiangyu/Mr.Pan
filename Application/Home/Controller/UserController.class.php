@@ -111,6 +111,25 @@ class UserController extends Controller{
 			$this->error("请先登录", U("User/login"));
 		}
 	}
+
+	public function follow(){
+		if (isLogin()){
+			$data['follow_id'] = I("user_id");
+			$data['user_id'] = $_SESSION['user_id'];
+			$follow_id = $data["follow_id"];
+			$user_id = $data["user_id"];
+			$follow = D("InfoFollow");
+			$hasFollow = $follow->where("user_id='$user_id' and follow_id='$follow_id'")->select();
+			
+			if (count($hasFollow) == 0 and $follow_id != $user_id){
+				$result = $follow->add($data);
+			}
+			$this->redirect("Home/Index/index");
+		}
+		else{
+			$this->error("请先登录", U("User/login"));
+		}
+	}
 }
 
 ?>
