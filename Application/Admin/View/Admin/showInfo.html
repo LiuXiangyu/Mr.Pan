@@ -13,34 +13,29 @@
 	<body>
 		<div id="top-bar">
 			<div class="wrap">
-				<div class="top-bar-left">
-					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
-						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
-						<input type="search" name="keyword" class="searchkey"/>
-						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
-						<input type="radio" name="searchType" value="course" />&nbsp课程
-						<input type="submit" value="serach" class="searchbtn"/>
-					</form>
-				</div>
+				<div class="top-bar-left">   
+            <span class="logo"><a>Mr.Pan</a></span>        
+
+        </div>
 				<div class="top-bar-right">
 					<?php  if (isLogin()) { ?>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
-		                       	<li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a>
-		                       		<li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
-		                       		<li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-cog"></i> 我的关注</a>
+		                          <li><a href="<?php  echo U('Admin/manageUser') ?>"><i class="glyphicon glyphicon-cog"></i> 用户管理</a></li>
+                            <li><a href="<?php  echo U('Admin/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 评论管理</a>
+                            <li><a href="<?php  echo U('Admin/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
 		                  	</ul>
 						</li>
 						<li>
-							<a href="<?php echo U('User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
+							<a href="<?php echo U('Home/User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
 						</li>
 					</ul>
 					<?php }  else { ?>
 						<ul class="nav navbar-nav navbar-right">
 							<li>
-								<a href="<?php echo U('User/login')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 登陆</a>
+								<a href="<?php echo U('Home/User/login')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 登陆</a>
 							</li>
 						</ul>		
 					<?php } ?>
@@ -71,24 +66,10 @@
 			         	<input type="text" class="form-control" name="user_email"  value="<?php echo $userdata['user_email'];?>" readonly>
 			      	</div>
 			   	</div>
-
-			   	<div class="form-group">
-			      	<label for="collegename" class="col-sm-2 control-label"> 学院：</label>
-			      	<div class="col-sm-3">
-			         	<input type="text" class="form-control" name="collegename"  value="<?php echo $userdata['collegename'];?>" readonly>
-			      	</div>
-			   	</div>
-
-			   	<div class="form-group">
-			      	<label for="schoolname" class="col-sm-2 control-label"> 学校：</label>
-			      	<div class="col-sm-3">
-			         	<input type="text" class="form-control" name="schoolname"  value="<?php echo $userdata['schoolname'];?>" readonly>
-			      	</div>
-			   	</div>
 			   
 			    <div class="form-group">
 			      	<div class="col-sm-offset-2 col-sm-10">
-			         	<a href="<?php echo  U('User/updateInfo'); ?>"> <input type="button" class="btn btn-info" value="修改"> </a>
+			         	<a href="<?php echo  U('Admin/updateInfo'); ?>"> <input type="button" class="btn btn-info" value="修改"> </a>
 			     	</div>
 			   	</div>
 			  </div>

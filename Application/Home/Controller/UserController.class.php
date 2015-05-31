@@ -18,8 +18,13 @@ class UserController extends Controller{
 			$user = D("InfoUser");
 			$login_result = $user->login($data); //登录结果，成功为true，失败为false
 
+			$user_level = $_SESSION["user_level"];
+
 			if ($login_result){
-				$this->success("登录成功", U("Home/Index/index"), 2);
+				if ($user_level == 1)
+					$this->success("登录成功", U("Home/Index/index"), 2);
+				else if ($user_level == 2)
+					$this->success("登录成功", U("Admin/Admin/manageUser"), 2);
 			}
 			else{
 				$this->error($user->getError());
@@ -72,6 +77,8 @@ class UserController extends Controller{
 			$user_id = $_SESSION["user_id"];
 			$user = M("InfoUser");
 			$data = $user->where("user_id='$user_id'")->find();
+			$data["schoolname"] = getSchoolNameById($data["school_id"]);
+			$data["collegename"] = getCollegeNameById($data["college_id"]);
 			//dump($data);
 			$this->assign("userdata", $data);
 			$this->display();
@@ -138,7 +145,7 @@ class UserController extends Controller{
 			$followlist = $follow->where("user_id='$user_id'")->select();
 			$user = M("InfoUser");
 
-			foreach($followlist as $key => &$value){
+			foreach($followlist as &$value){
 				$value["username"] = getUserNameById($value['follow_id']);
 				$follow_id = $value["follow_id"];
 				$data = $user->where("user_id='$follow_id'")->find();
