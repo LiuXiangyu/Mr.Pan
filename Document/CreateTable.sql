@@ -35,8 +35,8 @@ CREATE TABLE info_comment(
 
 CREATE TABLE info_follow(
 	id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	user_id VARCHAR(20) NOT NULL,
-	follow_id VARCHAR(20) NOT NULL,
+	user_id INT(10) NOT NULL,
+	follow_id INT(10) NOT NULL,
 	follow_type CHAR(1) NOT NULL
 );
 
@@ -55,4 +55,10 @@ CREATE TABLE info_school(
 CREATE TABLE info_course(
 	course_id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	course_name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE info_report(
+	id INT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	user_id INT(10),
+	comment_id INT(10)
 );
