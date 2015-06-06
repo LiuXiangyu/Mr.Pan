@@ -7,7 +7,9 @@
 		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
 		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/tmp.css"/>
 		
 	</head>
 	<body>
@@ -50,32 +52,53 @@
 		</div>
 		<div class="wrap" id="main">
 			<form action=<?php echo U("index") ?> method="post" id="formid">
-				<span>学校：<select id="school" name="school_id">
-					<option selected="selected" value="">---</option>
-				<?php foreach ($school as $key => $value): ?>
-					<option value=<?php echo $key ?> >
-						<?php echo $value ?>
-					</option> 			
-				<?php endforeach;?>
-				</select></span>
-	
-				<span>学院：<select id="college" name="college_id">
-					<option selected="selected" value="">---</option>
-				</select></span>
-	
-				<span>教师：<select id="teacher" name="teacher_id">
-					<option selected="selected" value="">---</option>
-				</select></span>
-	
-				<span>课程：<select id="course" name="course_id">
-					<option selected="selected" value="">---</option>
-				</select></span>
+
+				
+					<label class="mylabel-contrl">学校：</label>
+					
+						<select id="school" name="school_id" class="select-control" >
+							<option selected="selected" value="">---</option>
+							<?php foreach ($school as $key => $value): ?>
+							<option value=<?php echo $key ?> >
+							<?php echo $value ?>
+							</option> 			
+							<?php endforeach;?>
+						</select>
+					
+
+					<label class="mylabel-contrl">学院：</label>
+					
+						<select id="college" name="college_id" class="select-control">
+							<option selected="selected" value="">---</option>
+						</select>
+					
+
+					<label class="mylabel-contrl">教师：</label>
+				
+						<select id="teacher" name="teacher_id" class="select-control" >
+							<option selected="selected" value="">---</option>
+							
+						</select>
+					
+
+					<label class="mylabel-contrl">课程：</label>
+					
+						<select id="course" name="course_id" class="select-control">
+							<option selected="selected" value="">---</option>
+						</select>
+			
+			
+
+				
+
+
 	
 				<div id="txt">
 					<textarea name="comment_content" rows="6" cols="100" onfocus="if (value =='请填写评论..'){value =''}"
-	    				onblur="if (value ==''){value=''}" >请填写评论..</textarea>
+	    				onblur="if (value ==''){value=''}"  class="form-control">请填写评论..</textarea>
 	    		</div>
-				<p><input type="submit" value="确认" id="addbtn"/></p>
+	    		<br/>
+				<p><input type="submit" value="确认" class="btn btn-info" id="addbtn"/></p>
 			</form>
 
 			<?php foreach ($comment as $num => $record): ?>

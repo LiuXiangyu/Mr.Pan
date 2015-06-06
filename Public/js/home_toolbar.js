@@ -4,7 +4,7 @@ document.write('<div id="top-bar">'+
 			'<div class="wrap">' +
 				'<div class="top-bar-left">'+
 					'<form method="GET" action=' + search_url + '>'+
-						'<span class="logo"> <a href=' + index_url + '> Mr.Pan</a></span>'+
+						'<span class="logo"> <a href=' + index_url + '> 教师评价系统</a></span>'+
 						'<input type="search" name="keyword" class="searchkey"/>'+
 						'<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师'+
 						'<input type="radio" name="searchType" value="course" />&nbsp课程'+
