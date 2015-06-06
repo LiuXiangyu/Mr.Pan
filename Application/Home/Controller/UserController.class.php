@@ -34,7 +34,6 @@ class UserController extends Controller{
 			$this->display();
         }
 	}
-
 	/*
 		用户登出
 	*/
@@ -43,7 +42,6 @@ class UserController extends Controller{
 		$user->logout();
 		$this->success("注销成功", U("Home/Index/index"));
 	}
-
 	/*
 		用户注册
 		@param  POST
