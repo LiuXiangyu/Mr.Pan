@@ -11,36 +11,20 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/DT_bootstrap.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
 </head>
 <body>
-	<div id="top-bar">
-      <div class="wrap">
-        <div class="top-bar-left">
-          <form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
-            <span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
-            <input type="search" name="keyword" class="searchkey"/>
-            <input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
-            <input type="radio" name="searchType" value="course" />&nbsp课程
-            <input type="submit" value="serach" class="searchbtn"/>
-          </form>
-        </div>
-        <div class="top-bar-right">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                            <li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a></li>
-                            <li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
-                            <li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-cog"></i> 我的关注</a>
-                        </ul>
-            </li>
-            <li>
-              <a href="<?php echo U('User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<script type="text/javascript">
+  var index_url = '<?php echo U("Home/index/Index")?>';
+  var user_name_url = '<?php echo session("user_name") ?>';
+  var comment_manage_url = '<?php  echo U("Comment/manageComment") ?>';
+  var show_info_url = '<?php  echo U("User/showInfo") ?>';
+  var follow_list_url = '<?php  echo U("User/followList") ?>';
+  var logout_url = '<?php echo U("User/logout")?>';
+  var login_url = '<?php echo U("User/login")?>';
+  var search_url = '<?php echo U("Home/Search/SearchResult")?>';
+</script>
+	<script type="text/javascript" src = "__PUBLIC__/js/home_toolbar.js"></script>
 <div class="wrap" id="main">
     <div class="container">
     <table class="bordered-table zebra-striped" id="example">

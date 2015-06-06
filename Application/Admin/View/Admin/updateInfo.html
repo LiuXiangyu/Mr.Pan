@@ -7,41 +7,17 @@
 		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
 		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
-		
-		
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
 	</head>
 	<body>
-		<div id="top-bar">
-			<div class="wrap">
-				<div class="top-bar-left">   
-            <span class="logo"><a>Mr.Pan</a></span>        
-
-        </div>
-				<div class="top-bar-right">
-					<?php  if (isLogin()) { ?>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
-							<ul class="dropdown-menu">
-		                           <li><a href="<?php  echo U('Admin/manageUser') ?>"><i class="glyphicon glyphicon-cog"></i> 用户管理</a></li>
-                            <li><a href="<?php  echo U('Admin/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 评论管理</a>
-                            <li><a href="<?php  echo U('Admin/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
-		                  	</ul>
-						</li>
-						<li>
-							<a href="<?php echo U('Home/User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
-						</li>
-					</ul>
-					<?php }  else { ?>
-						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<a href="<?php echo U('Home/User/login')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 登陆</a>
-							</li>
-						</ul>		
-					<?php } ?>
-				</div>
-			</div>
-		</div>
+		<script type="text/javascript">
+		  var user_name = '<?php echo $_SESSION['user_name']; ?>';
+		  var user_manage_url = "<?php  echo U('Admin/manageUser') ?> ";
+		  var comment_manage_url = "<?php  echo U('Admin/manageComment') ?> ";
+		  var show_info_url = "<?php  echo U('Admin/showInfo') ?> ";
+		  var logout_url = "<?php  echo U('Home/User/logout') ?> ";
+		</script>
+		<script type="text/javascript" src = "__PUBLIC__/js/admin_toolbar.js"></script>
 
 
 		<div class="wrap" id="main">

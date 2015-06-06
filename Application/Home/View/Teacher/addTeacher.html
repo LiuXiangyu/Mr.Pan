@@ -5,25 +5,20 @@
 	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
 	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
 	<link rel="stylesheet" href="__PUBLIC__/css/create.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
 </head>
 <body>
-	<div id="top-bar">
-      	<div id="top-bar">
-			<div class="wrap">
-				<div class="top-bar-left">
-					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
-						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>Mr.Pan</a></span>
-						<input type="search" name="keyword" class="searchkey"/>
-						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
-						<input type="radio" name="searchType" value="course" />&nbsp课程
-						<input type="submit" value="serach" class="searchbtn"/>
-					</form>
-				</div>
-				<div class="top-bar-right">
-					<span class="username"><?php echo session("user_name"); ?></span>
-				</div>
-			</div>
-		</div>
+	<script type="text/javascript">
+	  var index_url = '<?php echo U("Home/index/Index")?>';
+	  var user_name_url = '<?php echo session("user_name") ?>';
+	  var comment_manage_url = '<?php  echo U("Comment/manageComment") ?>';
+	  var show_info_url = '<?php  echo U("User/showInfo") ?>';
+	  var follow_list_url = '<?php  echo U("User/followList") ?>';
+	  var logout_url = '<?php echo U("User/logout")?>';
+	  var login_url = '<?php echo U("User/login")?>';
+	  var search_url = '<?php echo U("Home/Search/SearchResult")?>';
+	</script>
+	<script type="text/javascript" src = "__PUBLIC__/js/home_toolbar.js"></script>
     </div>
     <div class="wrap" id="main">
   		<form action=<?php echo U("addTeacher") ?> method="post" id="formid">

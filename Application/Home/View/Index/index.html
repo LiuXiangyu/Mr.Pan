@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
 		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
-		
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
 		
 	</head>
 	<body>
@@ -29,8 +29,8 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
 		                       	<li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a>
-		                       		<li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-cog"></i> 个人资料</a></li>
-		                       	<li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-cog"></i> 我的关注</a>
+		                       		<li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-edit"></i> 个人资料</a></li>
+		                       	<li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-heart"></i> 我的关注</a>
 		                  	</ul>
 
 						</li>
@@ -77,31 +77,7 @@
 	    		</div>
 				<p><input type="submit" value="确认" id="addbtn"/></p>
 			</form>
-			
-			<!--
-			<div id="comment">
-				<div class="comment_item" >
-	    			<div class="content">
-	        			<h3>
-	        				<span class="info1">
-	            				<span class="comment_username">用户</span>
-	            				<span class="time">2014-07-22</span>
-	            			</span>
-	            			<span class="info2">
-	                			<span class="comment_school">学校</span>
-	                			<span class="comment_college">学院</span>
-	                			<span class="comment_teacher">教师</span>
-	                			<span class="comment_course">课程</span>
-	                		</span>
-	                			
-	        			</h3>
-	        			<p class=""> 摆足了他能摆出的一切姿态和这个世界谈谈，想告诉人们他眼中的这个世界的样子。可他不知道他看到的这一切与别人看到的其实没啥区别。他想要证明自己并不平庸，却恰恰印证了一个时代的平庸。PS：好听的歌都不是原创，原创的歌都不好听。
-	        			</p>
-	    			</div>
-				</div>
-			</div>
-			-->
-			
+
 			<?php foreach ($comment as $num => $record): ?>
 				<div id="comment">
 					<div class="comment_item" >
@@ -130,17 +106,6 @@
 
 			<div id="pagenav">
         	</div>
-			<!--
-			<?php foreach ($comment as $num => $record): ?>
-			<ul>
-				<li>a<?php echo $record["comment_content"] ?></li>
-				<li>b<?php echo $record["teacher_id"] ?></li>
-			</ul>
-			<?php endforeach; ?>
-			-->
-			<div id="feeds">
-				© 2015－2016 mrpan.com, all rights reserved 
-			</div>
 		</div>
 		<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
 		<script	type="text/javascript" src="__PUBLIC__/js/general.js"></script>
