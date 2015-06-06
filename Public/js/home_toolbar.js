@@ -5,11 +5,11 @@ document.write('<div id="top-bar">'+
 				'<div class="top-bar-left">'+
 					'<form method="GET" action=' + search_url + '>'+
 						'<span class="logo"> <a href=' + index_url + '> 教师评价系统</a></span>'+
-						'<input type="search" name="keyword" class="searchkey"/>'+
+						'<input type="search" name="keyword" class="searchkey text-control" placeholder="搜索教师或课程"/>'+
 						'<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师'+
 						'<input type="radio" name="searchType" value="course" />&nbsp课程'+
 						
-						'<input type="submit" value="serach" class="searchbtn"/>'+
+						'<input type="submit" class=" zu-top-add-question" value="搜索"/>'+
 
 					'</form>'+
 				'</div>'+

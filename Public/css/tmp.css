@@ -2,3 +2,60 @@
 .mylabel-contrl{
 	padding: 20px;
 }
+.magnify-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 32px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  background: 0;
+}
+
+.icon-magnify-q {
+  width: 13px;
+  height: 15px;
+  background-position: -239px -60px;
+  vertical-align: -4px;
+}
+
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.zu-top-add-question {
+  
+  margin: 0 0 0 6px;
+  background: #0d77e4;
+  background-color: #0e78e7;
+  background-image: -moz-linear-gradient(top,#0e7bef,#0d73da);
+  background-image: -ms-linear-gradient(top,#0e7bef,#0d73da);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#0e7bef),to(#0d73da));
+  background-image: -webkit-linear-gradient(top,#0e7bef,#0d73da);
+  background-image: -o-linear-gradient(top,#0e7bef,#0d73da);
+  background-image: linear-gradient(top,#0e7bef,#0d73da);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e7bef', endColorstr='#0d73da', GradientType=0);
+  color: #FFF;
+  font-size: 14px;
+  width: 66px;
+  height: 32px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0,0,0,.12);
+  cursor: pointer;
+  border: 1px solid #045BB2;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05),inset 0 1px 1px rgba(255,255,255,.15);
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  outline: 0;
+}
+
+.text-control{width:20%;height:30px;padding:6px 12px;font-size:14px;line-height:1.428571429;color:#555;vertical-align:middle;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}

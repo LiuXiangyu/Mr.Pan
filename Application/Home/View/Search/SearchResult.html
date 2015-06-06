@@ -5,8 +5,10 @@
 		<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
 		<link rel="stylesheet" href="__PUBLIC__/css/general.css">
 		<link rel="stylesheet" href="__PUBLIC__/css/search.css">
-		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
 		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/tmp.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+
 	</head>
 
 	<body>
@@ -15,10 +17,10 @@
 				<div class="top-bar-left">
 					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
 						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>教师评价系统</a></span>
-						<input type="search" name="keyword" class="searchkey"/>
+						<input type="search" name="keyword" class="searchkey text-control" placeholder="搜索教师或课程"/>
 						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
 						<input type="radio" name="searchType" value="course" />&nbsp课程
-						<input type="submit" value="serach" class="searchbtn"/>
+						<input type="submit" class=" zu-top-add-question" value="搜索"/>
 					</form>
 				</div>
 				<div class="top-bar-right">
@@ -47,18 +49,10 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="wrap" id="main">
 
-			<!--
-			<?php foreach ($comment as $num => $record): ?>
-			<ul>
-				<li><?php echo $record["college"] ?></li>
-				<li><?php echo $record["school"] ?></li>
-				<li><?php echo $record["content"] ?></li>
-			</ul>
-			<?php endforeach;?>
-			-->
-			<!--Search Result-->
+			
 			<?php foreach ($comment as $num => $record): ?>
 				<div id="comment">
 					<div class="comment_item" >
@@ -84,23 +78,7 @@
 			<?php endforeach; ?>
 			<div id="pagenav">
         	</div>
-			<!--Search Result-->
-
-
-			<!--
-			<ul id="nav" class="nav nav-tabs">
-				<li class="active"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab">找老师</a></li>
-				<li><a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">找课程</a></li>
-			</ul>
-			<div class="tab-content">
-				<div id="teachers" class="tab-pane active">
-					teachers
-				</div>
-				<div id="courses" class="tab-pane">
-					courses
-				</div>
-			</div>
-			-->
+		
 		</div>
 		<script type="text/javascript">
 			var eles = document.getElementsByClassName('comment_' + '<?php echo $searchType ?>');
