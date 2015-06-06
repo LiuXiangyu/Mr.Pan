@@ -18,7 +18,7 @@ document.write('<html>'+
 '<div id="top-bar">'+
       '<div class="wrap">'+
         '<div class="top-bar-left">'+
-            '<span class="logo"><a>Mr.Pan</a></span>'+
+            '<span class="logo"><a>教师评价系统</a></span>'+
         '</div>'+
         '<div class="top-bar-right">'+
           '<ul class="nav navbar-nav navbar-right">'+
