@@ -14,7 +14,7 @@
 			<div class="wrap">
 				<div class="top-bar-left">
 					<form method="GET" action=<?php echo U("Home/Search/SearchResult")?> >
-						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'教师评价系统</a></span>
+						<span class="logo"><a href='<?php echo U('Home/index/Index')?>'>教师评价系统</a></span>
 						<input type="search" name="keyword" class="searchkey"/>
 						<input type="radio" name="searchType" value="teacher" checked="checked" />&nbsp教师
 						<input type="radio" name="searchType" value="course" />&nbsp课程
@@ -29,8 +29,9 @@
 							<ul class="dropdown-menu">
 		                       	<li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a>
 		                       		<li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-edit"></i> 个人资料</a></li>
-		                       		<li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-heart"></i> 我的关注</a>
+		                       	<li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-heart"></i> 我的关注</a>
 		                  	</ul>
+
 						</li>
 						<li>
 							<a href="<?php echo U('User/logout')?>" class="logout"><i class="glyphicon glyphicon-off"></i> 注销</a>
