@@ -58,17 +58,34 @@ class UserController extends Controller{
 			$data["school_id"] = 0;//default = 0
 			$data["college_id"] = 0;
 
-			$user = D("InfoUser");
-			$register_result = $user->register($data); //注册结果，成功为true，失败为false
-			if ($register_result){
-				$this->success("注册成功", U("Home/Index/index"),3);
+			$emailResult = $this->sendMail($data['user_email']);
+			if ($emailResult){
+
+				$user = D("InfoUser");
+				$register_result = $user->register($data); //注册结果，成功为true，失败为false
+				if ($register_result){
+					$this->success("注册成功", U("Home/Index/index"),3);
+				}
+				else{
+					$this->error($user->getError());
+
+				}
 			}
 			else{
-				$this->error($user->getError());
-
+				$this->error("发送验证邮件失败");
 			}
 		}
 	}
+
+	/*
+		发送验证邮箱
+	*/
+	public function sendMail($email){
+ 
+		$title = 'hehehe';  //标题
+		$content = 'helloworld~';  //邮件内容
+		return  send($email,$title,$content); //直接调用发送
+   	}
 
 	public function showInfo(){
 		if (isLogin()){

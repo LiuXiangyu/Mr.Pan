@@ -3,6 +3,7 @@ USE db_tc;
 
 INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`) VALUES (1, '123@qq.com', '123456', 'lcc123', 3, 1);
 INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`) VALUES (1, '444@qq.com', '123456', 'lcc444', 3, 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`) VALUES (2, 'admin', 'admin', 'admin', 3, 1);
 
 INSERT INTO `info_school` (`school_name`, `school_college`) VALUES ('清华大学', '1|2|3');
 INSERT INTO `info_school` (`school_name`, `school_college`) VALUES ('北京大学', '1|2|3');	
