@@ -24,8 +24,7 @@
  * @author Chris Ryan
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  */
-class SMTP
-{
+class SMTP{
     /**
      * The PHPMailer SMTP version number.
      * @type string

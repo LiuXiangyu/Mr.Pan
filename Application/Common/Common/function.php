@@ -115,7 +115,7 @@ function sendMail($to, $verify_code){
     //Vendor('PHPMailer.PHPMailerAutoload');  
 
     vendor('PHPMailer.class#PHPMailer');
-    vendor('PHPMailer.class#SMTP');
+    //vendor('PHPMailer.class#SMTP');
 
     $mail = new PHPMailer(); //实例化
     $mail->IsSMTP(); // 启用SMTP
