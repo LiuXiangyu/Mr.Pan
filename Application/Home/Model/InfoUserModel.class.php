@@ -35,13 +35,17 @@ class InfoUserModel extends Model{
 		$user_pwd = $data["use_pwd"];
 		$result = $this->where("user_email='$user_email'")->find();
 		if (is_array($result) && !empty($result)){
-			if ($result["user_pw"] == $user_pw){
+			if ($result["user_pw"] == $user_pw && $result['status'] != 0){
 				session('user_name', $result["user_name"]);
 				session("user_id", $result["user_id"]);
 				session("user_level", $result["user_level"]);
 				session("user_email", $user_email);
 
 				return true;
+			}
+			else if ($result['status'] == 0){
+				$this->error = "登录失败，该邮箱未激活！";
+				return false;
 			}
 			else{
 				$this->error = "密码不正确";
@@ -73,11 +77,22 @@ class InfoUserModel extends Model{
 	*/
 	public function register($data){
 		if ($this->create($data)){ //判断数据是否符合要求
-			if ($this->add()) {//把新数据插入数据库
-				return true;
+			$data['reg_time'] =  date("Y-m-d H:i:s", time());
+			$data['status'] = 0;
+			$data['verify_code'] = md5($data['user_email'].$data['user_pwd'].$data['reg_time']);
+		
+			$emailResult = sendMail($data['user_email'],$data['verify_code']);
+			if ($emailResult){
+				if ($this->add($data)) {//把新数据插入数据库
+					return true;
+				}
+				else{  //插入新数据失败
+					$this->error = "注册用户失败";
+					return false;
+				}
 			}
-			else{  //插入新数据失败
-				$this->error = "注册用户失败";
+			else{
+				$this->error = "验证邮件发送失败，请稍后再试";
 				return false;
 			}
 		}
@@ -85,6 +100,43 @@ class InfoUserModel extends Model{
 			return false;
 		}
 	}
+
+	/*
+		激活账户
+	*/
+	public function active($verify_code){
+		$data = $this->where("verify_code='$verify_code'")->find();
+		if (!empty($data)){
+			$user_id = $data['user_id'];
+			if ($data['status'] == 0){
+				$current_time = date("Y-m-d H:i:s", strtotime("-1 day"));
+				if ($data['reg_time'] < $current_time){
+					$this->error = "您的激活有效期已过，请重新注册发送激活邮件";
+					$this->where("user_id='$user_id'")->delete();
+					return false;
+				}
+				else{
+					$data['status'] = 1;
+					if ($this->where("user_id='$user_id'")->save($data)){
+						return true;
+					}
+					else{
+						$this->error = "激活失败，请重新注册";
+						$this->where("user_id='$user_id'")->delete();
+						return false;
+					}
+				}
+			}
+			else{
+				 return true;
+			}
+		}
+		else{
+			$this->error = "激活失败，请重新注册";
+			return false;
+		}
+	}
+
 	public function updateInfo($data){
 		if ($this->create($data)){
 			if ($this->save($data))

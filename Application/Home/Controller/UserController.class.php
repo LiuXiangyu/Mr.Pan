@@ -58,8 +58,11 @@ class UserController extends Controller{
 			$data["school_id"] = 0;//default = 0
 			$data["college_id"] = 0;
 
-			$emailResult = $this->sendMail($data['user_email']);
-			if ($emailResult){
+			$rule  = "/^([a-zA-Z0-9_-])+@(mail2.sysu.edu.cn)$/"; 
+			$result = 1; 
+        	$result = preg_match($rule, $data["user_email"] );
+
+        	if ($result){
 
 				$user = D("InfoUser");
 				$register_result = $user->register($data); //注册结果，成功为true，失败为false
@@ -72,20 +75,28 @@ class UserController extends Controller{
 				}
 			}
 			else{
-				$this->error("发送验证邮件失败");
+				$this->error("注册失败，只能使用中山大学邮箱进行注册!");
+			}
+		}	
+	}
+
+	public function active(){
+		if (IS_GET){
+			$verify_code = I("verify_code");
+			
+			$user = D("InfoUser");
+			$result = $user->active($verify_code);
+		
+			if ($result){
+				$this->success("激活成功，跳转到登录页面", U("User/login"));
+			}
+			else{
+				$this->error("激活失败，请重新注册", U("User/login"));
 			}
 		}
 	}
 
-	/*
-		发送验证邮箱
-	*/
-	public function sendMail($email){
- 
-		$title = 'hehehe';  //标题
-		$content = 'helloworld~';  //邮件内容
-		return  send($email,$title,$content); //直接调用发送
-   	}
+	
 
 	public function showInfo(){
 		if (isLogin()){

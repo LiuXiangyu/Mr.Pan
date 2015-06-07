@@ -110,7 +110,7 @@ function getCourseIdByName($course_name){
 	发送验证邮箱
 
 */
-function send($to, $title, $content){
+function sendMail($to, $verify_code){
 
     //Vendor('PHPMailer.PHPMailerAutoload');  
 
@@ -130,8 +130,9 @@ function send($to, $title, $content){
     $mail->Port = 25;
     $mail->IsHTML(C('MAIL_ISHTML')); // 是否HTML格式邮件
     $mail->CharSet=C('MAIL_CHARSET'); //设置邮件编码
-    $mail->Subject =$title; //邮件主题
-    $mail->Body = $content; //邮件内容
+    $mail->Subject ='教师评价系统'; //邮件主题
+    $url = 'http://localhost/Mr.Pan/?m=Home&c=User&a=active&verify_code='.$verify_code.'<br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接24小时内有效。';
+    $mail->Body = $url; //邮件内容
     $mail->AltBody = "这是一个纯文本的身体在非营利的HTML电子邮件客户端"; //邮件正文不支持HTML的备用显示
 
     $result = $mail->Send();

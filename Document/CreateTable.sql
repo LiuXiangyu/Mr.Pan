@@ -9,7 +9,10 @@ CREATE TABLE info_user(
 	user_pwd VARCHAR(40) NOT NULL,
 	user_name VARCHAR(20) NOT NULL,
 	school_id INT(10) NOT NULL,
-	college_id INT(10) NOT NULL
+	college_id INT(10) NOT NULL,
+	verify_code VARCHAR(50) NOT NULL,
+	reg_time DATE NOT NULL,
+	status  INT NOT NULL DEFAULT 0
 );
 
 CREATE TABLE info_teacher(

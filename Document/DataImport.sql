@@ -1,9 +1,9 @@
 CREATE DATABASE IF NOT EXISTS db_tc DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE db_tc;
 
-INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`) VALUES (1, '123@qq.com', '123456', 'lcc123', 3, 1);
-INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`) VALUES (1, '444@qq.com', '123456', 'lcc444', 3, 1);
-INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`) VALUES (2, 'admin', 'admin', 'admin', 3, 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '123@qq.com', '123456', 'lcc123', 3, 1, 'd63a4720fb176227a6be385323485eea', '2015-06-07 12:57:16', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '444@qq.com', '123456', 'lcc444', 3, 1, 'e7f99a22784f7fdd66248fdb5edda068', '2015-06-07 20:58:10', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (2, 'admin', 'admin', 'admin', 3, 1, '981a5acc257f28309a8d95f24feff751', '2015-06-07 20:58:56', 1);
 
 INSERT INTO `info_school` (`school_name`, `school_college`) VALUES ('清华大学', '1|2|3');
 INSERT INTO `info_school` (`school_name`, `school_college`) VALUES ('北京大学', '1|2|3');	
