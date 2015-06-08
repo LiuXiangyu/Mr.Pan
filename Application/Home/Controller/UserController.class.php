@@ -67,7 +67,7 @@ class UserController extends Controller{
 				$user = D("InfoUser");
 				$register_result = $user->register($data); //注册结果，成功为true，失败为false
 				if ($register_result){
-					$this->success("注册成功", U("Home/Index/index"),3);
+					$this->success("注册成功，请在24小时内前往您的邮箱激活账户", U("Home/Index/index"),3);
 				}
 				else{
 					$this->error($user->getError());
