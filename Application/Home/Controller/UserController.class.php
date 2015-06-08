@@ -21,6 +21,7 @@ class UserController extends Controller{
 			$user_level = $_SESSION["user_level"];
 
 			if ($login_result){
+				echo $user_level;
 				if ($user_level == 1)
 					$this->success("登录成功", U("Home/Index/index"), 2);
 				else if ($user_level == 2)
