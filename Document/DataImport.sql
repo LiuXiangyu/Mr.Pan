@@ -37,6 +37,18 @@ INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('冯剑琳', 3, 1, '13|15');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('朝红阳', 3, 1, '22');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('常会友', 3, 1, '35|36');
+
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('毛明志', 3, 2, '5|36|46');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘嵘', 3, 2, '13|47');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('周晓聪', 3, 2, '48|49');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('娄定俊', 3, 2, '15|50|51');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张治国', 3, 2, '52|53');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('蔡国扬', 3, 2, '3|54');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('凌应标', 3, 2, '12|55');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('李才伟', 3, 2, '11｜12|55');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张永民', 3, 2, '11|14|56|57|58');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('乔海燕', 3, 2, '4|10');
+
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张三', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('李四', 2, 2, '1|2');
@@ -92,6 +104,23 @@ INSERT INTO `info_course` (`course_name`) VALUES ('软件过程改进');
 INSERT INTO `info_course` (`course_name`) VALUES ('现代操作系统应用开发');
 INSERT INTO `info_course` (`course_name`) VALUES ('计算机游戏设计导论');
 INSERT INTO `info_course` (`course_name`) VALUES ('工程数学');
+INSERT INTO `info_course` (`course_name`) VALUES ('信息学概论');
+INSERT INTO `info_course` (`course_name`) VALUES ('搜索引擎分析与设计');
+INSERT INTO `info_course` (`course_name`) VALUES ('移动应用的设计与开发');
+INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
+INSERT INTO `info_course` (`course_name`) VALUES ('组合数学与数论');
+INSERT INTO `info_course` (`course_name`) VALUES ('图论及其应用');
+INSERT INTO `info_course` (`course_name`) VALUES ('高级编程技术');
+INSERT INTO `info_course` (`course_name`) VALUES ('Java高级编程及实践');
+INSERT INTO `info_course` (`course_name`) VALUES ('网络安全技术');
+INSERT INTO `info_course` (`course_name`) VALUES ('汇编语言程序设计');
+INSERT INTO `info_course` (`course_name`) VALUES ('Android应用设计与开发');
+INSERT INTO `info_course` (`course_name`) VALUES ('网络协议分析与设计');
+INSERT INTO `info_course` (`course_name`) VALUES ('网络优化与网络管理');
+INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
+INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
+INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
+INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
 
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 1, '不错，期末求过');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 2, '不错，期末求过');
