@@ -25,9 +25,9 @@ INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘茂林', 3, 2, '1|2');
 
 INSERT INTO `info_course` (`course_name`) VALUES ('系统分析与设计');
-INSERT INTO `info_course` (`course_name`) VALUES ('高等数学');
-INSERT INTO `info_course` (`course_name`) VALUES ('Web2.0');
 INSERT INTO `info_course` (`course_name`) VALUES ('软件工程导论');
+INSERT INTO `info_course` (`course_name`) VALUES ('Web2.0');
+INSERT INTO `info_course` (`course_name`) VALUES ('高等数学');
 INSERT INTO `info_course` (`course_name`) VALUES ('线性代数');
 INSERT INTO `info_course` (`course_name`) VALUES ('数据结构');
 INSERT INTO `info_course` (`course_name`) VALUES ('软件测试');
