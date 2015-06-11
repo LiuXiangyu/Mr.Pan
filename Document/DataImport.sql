@@ -17,7 +17,7 @@ INSERT INTO `info_college` (`college_name`) VALUES ('外语学院');
 INSERT INTO `info_college` (`college_name`) VALUES ('资讯管理学院');
 
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘茂林', 3, 1, '1|2|3');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('孙雪东', 3, 1, '1|2');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('孙雪东', 3, 1, '1|6');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张三', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('李四', 2, 2, '1|2');
@@ -30,7 +30,7 @@ INSERT INTO `info_course` (`course_name`) VALUES ('Web2.0');
 INSERT INTO `info_course` (`course_name`) VALUES ('高等数学');
 INSERT INTO `info_course` (`course_name`) VALUES ('线性代数');
 INSERT INTO `info_course` (`course_name`) VALUES ('数据结构');
-INSERT INTO `info_course` (`course_name`) VALUES ('软件测试');
+INSERT INTO `info_course` (`course_name`) VALUES ('软件测试技术');
 
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 1, '不错，期末求过');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 2, '不错，期末求过');
