@@ -16,13 +16,36 @@ INSERT INTO `info_college` (`college_name`) VALUES ('工学院');
 INSERT INTO `info_college` (`college_name`) VALUES ('外语学院');
 INSERT INTO `info_college` (`college_name`) VALUES ('资讯管理学院');
 
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘茂林', 3, 1, '1|2|3');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('孙雪东', 3, 1, '1|6');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘茂林', 3, 1, '5|16|30|44');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('孙雪冬', 3, 1, '17|25');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('邓革', 3, 1, '9|11');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('郑贵锋', 3, 1, '14|43');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('曾坤', 3, 1, '2|34');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王欣明', 3, 1, '6|17|40');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('Juan Rojas', 3, 1, '7||27|28|39');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('万海', 3, 1, '7|12|29|41');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('吴向军', 3, 1, '3|10');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王青', 3, 1, '6|18|42');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('任江涛', 3, 1, '4|8|13|24');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘炎', 3, 1, '10|32');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('骆伟祺', 3, 1, '4|45');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('刘宁', 3, 1, '12|26');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('高成英', 3, 1, '2|31');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('余阳', 3, 1, '5|33');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('温武少', 3, 1, '14|38');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('孙伟', 3, 1, '20|21|37');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('冯剑琳', 3, 1, '13|15');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('朝红阳', 3, 1, '22');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('常会友', 3, 1, '35|36');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张三', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('李四', 2, 2, '1|2');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘岩', 3, 1, '1|2');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘茂林', 3, 2, '1|2');
+
+
+
+
+
+
 
 INSERT INTO `info_course` (`course_name`) VALUES ('高等数学');
 INSERT INTO `info_course` (`course_name`) VALUES ('线性代数');
@@ -68,6 +91,7 @@ INSERT INTO `info_course` (`course_name`) VALUES ('四轴飞行机器人原理�
 INSERT INTO `info_course` (`course_name`) VALUES ('软件过程改进');
 INSERT INTO `info_course` (`course_name`) VALUES ('现代操作系统应用开发');
 INSERT INTO `info_course` (`course_name`) VALUES ('计算机游戏设计导论');
+INSERT INTO `info_course` (`course_name`) VALUES ('工程数学');
 
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 1, '不错，期末求过');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 2, '不错，期末求过');
