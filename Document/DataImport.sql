@@ -54,8 +54,12 @@ INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张少科', 3, 3, '63|64');
 
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('陈海', 3, 4, '65|66');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('陈衍茂', 3, 4, '2|68');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('邓院昌', 3, 4, '69|70|27');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('陈衍茂', 3, 4, '2|67');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('邓院昌', 3, 4, '68|69|27');
+
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('羽田帆奈美', 3, 5, '70|71|72');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('佟君', 3, 5, '73|74');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('陈元', 3, 5, '75|76|77');
 
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张三', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海', 1, 2, '1|2|3');
@@ -132,14 +136,25 @@ INSERT INTO `info_course` (`course_name`) VALUES ('公益传播');
 INSERT INTO `info_course` (`course_name`) VALUES ('健康传播');
 INSERT INTO `info_course` (`course_name`) VALUES ('新闻采访与写作');
 INSERT INTO `info_course` (`course_name`) VALUES ('新闻专业主义');
-INSERT INTO `info_course` (`course_name`) VALUES ('媒体协同设计');
-INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 
 INSERT INTO `info_course` (`course_name`) VALUES ('工程制图');
 INSERT INTO `info_course` (`course_name`) VALUES ('材料力学实验');
 INSERT INTO `info_course` (`course_name`) VALUES ('数学物理方法');
 INSERT INTO `info_course` (`course_name`) VALUES ('专业英语');
 INSERT INTO `info_course` (`course_name`) VALUES ('现代物流概论');
+
+INSERT INTO `info_course` (`course_name`) VALUES ('日语会话Ⅱ');
+INSERT INTO `info_course` (`course_name`) VALUES ('日语写作Ⅱ');
+INSERT INTO `info_course` (`course_name`) VALUES ('高级会话Ⅱ');
+INSERT INTO `info_course` (`course_name`) VALUES ('日本古典文学选读Ⅰ');
+INSERT INTO `info_course` (`course_name`) VALUES ('日本近现代文学演习Ⅰ');
+INSERT INTO `info_course` (`course_name`) VALUES ('法国文学史及作品选读Ⅱ');
+INSERT INTO `info_course` (`course_name`) VALUES ('法语报刊阅读Ⅱ');
+INSERT INTO `info_course` (`course_name`) VALUES ('法语论述文写作Ⅱ');
+
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
