@@ -14,7 +14,7 @@ INSERT INTO `info_college` (`college_name`) VALUES ('信息科学与技术学院
 INSERT INTO `info_college` (`college_name`) VALUES ('传播与设计学院');
 INSERT INTO `info_college` (`college_name`) VALUES ('工学院');
 INSERT INTO `info_college` (`college_name`) VALUES ('外语学院');
-INSERT INTO `info_college` (`college_name`) VALUES ('咨询管理学院');
+INSERT INTO `info_college` (`college_name`) VALUES ('资讯管理学院');
 
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('潘茂林', 3, 1, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('孙雪东', 3, 1, '1|2');
