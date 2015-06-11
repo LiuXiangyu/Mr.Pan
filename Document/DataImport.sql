@@ -53,7 +53,9 @@ INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海燕', 3, 3, '61|62');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张少科', 3, 3, '63|64');
 
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('乔海燕', 3, 3, '4|10');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('陈海', 3, 4, '65|66');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('陈衍茂', 3, 4, '2|68');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('邓院昌', 3, 4, '69|70|27');
 
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张三', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海', 1, 2, '1|2|3');
@@ -131,6 +133,16 @@ INSERT INTO `info_course` (`course_name`) VALUES ('健康传播');
 INSERT INTO `info_course` (`course_name`) VALUES ('新闻采访与写作');
 INSERT INTO `info_course` (`course_name`) VALUES ('新闻专业主义');
 INSERT INTO `info_course` (`course_name`) VALUES ('媒体协同设计');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
+
+INSERT INTO `info_course` (`course_name`) VALUES ('工程制图');
+INSERT INTO `info_course` (`course_name`) VALUES ('材料力学实验');
+INSERT INTO `info_course` (`course_name`) VALUES ('数学物理方法');
+INSERT INTO `info_course` (`course_name`) VALUES ('专业英语');
+INSERT INTO `info_course` (`course_name`) VALUES ('现代物流概论');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 1, '不错，期末求过');
