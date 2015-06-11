@@ -61,8 +61,12 @@ class InfoCommentModel extends Model{
 		}
 	}
 
-	public function getRecentComment($date) {
-		$result = $this->where("comment_time>='$date'")->limit(30)->select(); //读取前三天的30条评论
+	/*
+
+		读取最新的前30条记录，显示在home/index中
+	*/
+	public function getRecentComment() {
+		$result = $this->order('comment_time desc')->limit(30)->select(); //读取最新的的前30条评论
 		if(is_array($result)) {
 			return $this->transform($result);
 		}
