@@ -22,7 +22,7 @@ INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('郑贵锋', 3, 1, '14|43');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('曾坤', 3, 1, '2|34');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王欣明', 3, 1, '6|17|40');
-INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('Juan Rojas', 3, 1, '7||27|28|39');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('Juan Rojas', 3, 1, '7|27|28|39');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('万海', 3, 1, '7|12|29|41');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('吴向军', 3, 1, '3|10');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王青', 3, 1, '6|18|42');
