@@ -49,6 +49,12 @@ INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张永民', 3, 2, '11|14|56|57|58');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('乔海燕', 3, 2, '4|10');
 
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('周如南', 3, 3, '59|60');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海燕', 3, 3, '61|62');
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张少科', 3, 3, '63|64');
+
+INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('乔海燕', 3, 3, '4|10');
+
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('张三', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('王海', 1, 2, '1|2|3');
 INSERT INTO `info_teacher` (`teacher_name`, `school_id`, `college_id`, `teacher_course`) VALUES ('李四', 2, 2, '1|2');
@@ -117,10 +123,15 @@ INSERT INTO `info_course` (`course_name`) VALUES ('汇编语言程序设计');
 INSERT INTO `info_course` (`course_name`) VALUES ('Android应用设计与开发');
 INSERT INTO `info_course` (`course_name`) VALUES ('网络协议分析与设计');
 INSERT INTO `info_course` (`course_name`) VALUES ('网络优化与网络管理');
-INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
-INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
-INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
-INSERT INTO `info_course` (`course_name`) VALUES ('代数结构');
+
+INSERT INTO `info_course` (`course_name`) VALUES ('公共关系研究与项目训练');
+INSERT INTO `info_course` (`course_name`) VALUES ('人类学');
+INSERT INTO `info_course` (`course_name`) VALUES ('公益传播');
+INSERT INTO `info_course` (`course_name`) VALUES ('健康传播');
+INSERT INTO `info_course` (`course_name`) VALUES ('新闻采访与写作');
+INSERT INTO `info_course` (`course_name`) VALUES ('新闻专业主义');
+INSERT INTO `info_course` (`course_name`) VALUES ('媒体协同设计');
+INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 1, '不错，期末求过');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 1, 2, '不错，期末求过');
