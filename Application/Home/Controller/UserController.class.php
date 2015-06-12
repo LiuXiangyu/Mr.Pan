@@ -126,6 +126,41 @@ class UserController extends Controller{
 				$data["user_pwd"] = I("user_pwd");
 				$data["user_email"] = I("user_email");
 
+				$tmp = I("schoolname");
+				//$tmp1 = (strstr($tmp, '武大') != null);
+				//echo $tmp1;
+				if ($tmp === "武汉大学") {
+					$data["school_id"] = 1;
+				}
+				else if ($tmp === "华南理工大学") {
+					$data["school_id"] = 2;
+				}
+				else if ($tmp === "中山大学") {
+					$data["school_id"] = 3;
+				}
+					
+				$tmp1 = I("collegename");
+				if ($tmp1 === "软件学院") {
+					$data["college_id"] = 1;
+				}
+				else if ($tmp1 === "信息科学与技术学院") {
+					$data["college_id"] = 2;
+				}
+				else if ($tmp1 === "传播与设计学院") {
+					$data["college_id"] = 3;
+				}
+				else if ($tmp1 === "工学院") {
+					$data["college_id"] = 4;
+				}
+				else if ($tmp1 === "外国语学院") {
+					$data["college_id"] = 5;
+				}
+				else if ($tmp1 === "计算机科学与工程学院") {
+					$data["college_id"] = 6;
+				}
+				else if ($tmp1 === "计算机学院") {
+					$data["college_id"] = 7;
+				}
 				
 				$result = $user->updateInfo($data);
 
