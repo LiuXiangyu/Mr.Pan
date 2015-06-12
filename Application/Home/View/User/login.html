@@ -3,10 +3,10 @@
   <head>
     <title>Mr.Pan</title>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap3.3.min.css" />
     <link rel="stylesheet" href="__PUBLIC__/css/normalize.css"/>
     <link rel="stylesheet" href="__PUBLIC__/css/sign.css"/>
-    <link rel="stylesheet" href="__PUBLIC__/css/login.css" />
-    
+
   </head>
   <body>
     <div class="wrapper">
@@ -20,17 +20,17 @@
               <form method="POST" id="lg-form" action=<?php echo U("Home/User/login"); ?> >
                 <p>邮箱：<input type="text" name="user_email"  placeholder="邮箱"/></p>
                 <p>密码：<input type="password" name="user_pwd"  placeholder="密码"/></p>
-                <button type="submit" id="login">登录</button>
+                <button type="submit" class="btn btn-default btn-lg" id="login">登录</button>
               </form>
-              <button id="newuser" class="register">新用户>></button>
+              <button class="btn btn-default btn-lg" id="newuser">新用户>></button>
             </div>
             <div id="signup">
               <form method="POST" id="lg-form" action=<?php echo U("Home/User/register"); ?> >
                 <p>昵称：<input type="text" name="user_name"  placeholder="用户名" /></p>
                 <p>邮箱：<input type="text" name="user_email"  placeholder="邮箱"/></p>
                 <p>密码：<input type="password" name="user_pwd"  placeholder="密码"/></p>
-                <p>确认密码：<input type="password" name="user_repwd"  placeholder="确认密码"/></p>
-                <button type="submit" id="login">注册</button>
+                <p>确认：<input type="password" name="user_repwd"  placeholder="确认密码"/></p>
+                <button id="login" class="btn btn-default btn-lg register" type="submit">注册</button>
               </form>
             </div>
           </div>

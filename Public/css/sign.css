@@ -8,7 +8,7 @@ body {
 
 .center-wrapper {
     margin: 0 auto;
-    width: 740px;
+    width: 1040px;
 }
 
 .form-wrapper {
@@ -20,9 +20,9 @@ body {
 
 .logo {
     float:left;
-    width:400px;
+    width:550px;
     color: white;
-    font-size: 55px;
+    font-size: 75px;
 }
 
 .sign {
@@ -30,6 +30,7 @@ body {
     height:100%;
     float:right;
     color: white;
+    font-size:20px;
 }
 
 .sign input, button {
@@ -38,4 +39,10 @@ body {
 
 #signup {
     display: none;
+}
+
+#login, #newuser{
+    margin-top:10px;
+    font-size:30px;
+    width:280px;
 }
