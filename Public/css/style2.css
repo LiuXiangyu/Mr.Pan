@@ -2,6 +2,10 @@
 /*
 body{margin:0 auto;	text-align:center; font: 12px/1.5 arial; color:#242424;background:#212222;}
 */
+.pagination a:hover, .pagination .active a{
+  background-color: #DDDDDD;
+}
+.dataTables_paginate a{color: black;}
 .content p{margin:8px 0px 5px;}
 .time a{color:#999;}
 .time a:hover{color:#0767c8;}
