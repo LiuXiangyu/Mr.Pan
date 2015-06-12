@@ -24,7 +24,7 @@ class InfoCommentModel extends Model{
 			$tmp["username"] = getUserNameById($record["user_id"]);
 			$tmp["teacher"] = getTeacherNameById($record["teacher_id"]);
 			$tmp["course"] = getCourseNameById($record["course_id"]);
-			$tmp["school"] = getSchoolNameById($record["course_id"]);
+			$tmp["school"] = getSchoolNameById($record["school_id"]);
 			$tmp["college"] = getCollegeNameById($record["college_id"]);
 			$tmp["user_id"] = $record["user_id"];
 			$tmp["comment_id"] = $record["comment_id"];

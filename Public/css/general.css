@@ -131,6 +131,7 @@ body {
 
 #addbtn {
 	position: relative;
+	margin-bottom: 8px;
 	left: 850px;
 	width: 100px;
 	height: 30px;
