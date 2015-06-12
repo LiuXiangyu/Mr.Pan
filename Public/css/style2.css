@@ -2,7 +2,7 @@
 /*
 body{margin:0 auto;	text-align:center; font: 12px/1.5 arial; color:#242424;background:#212222;}
 */
-.content p{margin:8px 0px 8px;}
+.content p{margin:8px 0px 5px;}
 .time a{color:#999;}
 .time a:hover{color:#0767c8;}
 div{text-align:left;}
@@ -183,7 +183,7 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#00FFEC;}
 .main h2 span{
     color: #888;
 }
-.content{width:650px;}
+.content{width:960px;}
 .main p{
     margin-bottom: 18px;
 }

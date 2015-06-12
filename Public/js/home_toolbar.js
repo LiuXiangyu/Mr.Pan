@@ -19,8 +19,8 @@ document.write('<div id="top-bar">'+
 						'<li class="dropdown">'+
 							'<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> ' + user_name_url + '<b class="caret"></b></a>'+
 							'<ul class="dropdown-menu">'+
-		                       	'<li><a href=' + comment_manage_url + '><i class="glyphicon glyphicon-cog"></i> 所有评论</a>'+
-		                      		'<li><a href=' + show_info_url + '><i class="glyphicon glyphicon-edit"></i> 个人资料</a></li>'+
+		                       	'<li><a href=' + comment_manage_url + '><i class="glyphicon glyphicon-cog"></i> 我的评论</a>'+
+		                      		'<li><a href=' + show_info_url + '><i class="glyphicon glyphicon-edit"></i> 个人信息</a></li>'+
 		                      		'<li><a href=' + follow_list_url + '><i class="glyphicon glyphicon-heart"></i> 我的关注</a>'+
 		                  	'</ul>'+
 						'</li>'+

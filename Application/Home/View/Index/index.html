@@ -30,8 +30,8 @@
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo session("user_name");?><b class="caret"></b></a>
 							<ul class="dropdown-menu">
-		                       	<li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 所有评论</a>
-		                       		<li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-edit"></i> 个人资料</a></li>
+		                       	<li><a href="<?php  echo U('Comment/manageComment') ?>"><i class="glyphicon glyphicon-cog"></i> 我的评论</a>
+		                       		<li><a href="<?php  echo U('User/showInfo') ?>"><i class="glyphicon glyphicon-edit"></i> 个人信息</a></li>
 		                       	<li><a href="<?php  echo U('User/followList') ?>"><i class="glyphicon glyphicon-heart"></i> 我的关注</a>
 		                  	</ul>
 
@@ -85,13 +85,7 @@
 					
 						<select id="course" name="course_id" class="select-control">
 							<option selected="selected" value="">---</option>
-						</select>
-			
-			
-
-				
-
-
+						</select>				
 	
 				<div id="txt">
 					<textarea name="comment_content" rows="6" cols="100" onfocus="if (value =='请填写评论..'){value =''}"
