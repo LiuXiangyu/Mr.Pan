@@ -1,9 +1,12 @@
 CREATE DATABASE IF NOT EXISTS db_tc DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE db_tc;
 
-INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '123@qq.com', '123456', 'lcc123', 3, 1, 'd63a4720fb176227a6be385323485eea', '2015-06-07 12:57:16', 1);
-INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '444@qq.com', '123456', 'lcc444', 3, 1, 'e7f99a22784f7fdd66248fdb5edda068', '2015-06-07 20:58:10', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '123@qq.com', '123456', 'John', 3, 1, 'd63a4720fb176227a6be385323485eea', '2015-06-07 12:57:16', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '444@qq.com', '123456', 'Alice', 3, 1, 'e7f99a22784f7fdd66248fdb5edda068', '2015-06-07 20:58:10', 1);
 INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (2, 'admin', 'admin', 'admin', 3, 1, '981a5acc257f28309a8d95f24feff751', '2015-06-07 20:58:56', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '666@qq.com', '123456', 'TuHao', 1, 7, '981a5acc257f28309a8d95f24feff752', '2015-06-11 00:58:56', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '233@mail.sysu.edu.cn', '123456', 'SYSU SSER', 3, 1, '981a5acc257f28309a8d95f24feff753', '2015-06-12 16:44:56', 1);
+INSERT INTO `info_user`(`user_level`, `user_email`, `user_pwd`, `user_name`, `school_id`, `college_id`, `verify_code`, `reg_time`, `status`) VALUES (1, '222@qq.com', '123456', 'HuaGong', 2, 6, '981a5acc257f28309a8d95f24feff755', '2011-11-11 11:11:11', 1);
 
 INSERT INTO `info_school` (`school_name`, `school_college`) VALUES ('武汉大学', '7');
 INSERT INTO `info_school` (`school_name`, `school_college`) VALUES ('华南理工大学', '6');	
@@ -161,11 +164,23 @@ INSERT INTO `info_course` (`course_name`) VALUES ('恶意软件（病毒）的�
 INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 INSERT INTO `info_course` (`course_name`) VALUES ('设计调查');
 
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 16, 1, 5, 'PML老师的系统分析课让我爱上了UMLet');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (1, 7, 10, 46, 4, '听说咱们老师是《数据挖掘》的作者～呵呵～武大就是给力～');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (2, 6, 8, 42, 6, '学完模电，咱华工男是不是就可以去焊电线杆了？');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 14, 4, 5, '爱死贵妃了！期末我只写出了一道题，居然都及格了！哈哈哈哈～');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 15, 19, 1, '编译原理这简直天书啊，哎，FJL居然挂了80多个人，再也不想来软院了');
+
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 5, 70, 38, 1, '去外国语学院旁听了一下，美女可真是多呀');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 5, 71, 38, 5, '这个日本老师好可爱啊！');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 5, 72, 38, 2, '这个日本女老师真是卡哇伊呢～');
+
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 5, 1, 1, '期末考试有点难啊，不会证明补码');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 16, 1, 2, 'UML图不太会画，期末求carry啊');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 30, 1, 1, 'WEB是门好课啊！PML老师给力');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 44, 1, 2, 'cocos2d真有趣，我就喜欢编写游戏');
 INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 17, 2, 2, '老师这周咋不见了');
-INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 25, 2, 1, '不错，还OK');
-INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 1, 2, 1, '不错，老师叫啥');
-INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 1, 2, 2, 2, '不错，还OK');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 2, 25, 27, 1, '不错，还OK');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 4, 1, 28, 1, '不错，老师叫啥');
+INSERT INTO `info_comment` (`school_id`, `college_id`, `course_id`, `teacher_id`, `user_id`, `comment_content`) VALUES (3, 2, 2, 29, 2, '不错，还OK');
+
+
