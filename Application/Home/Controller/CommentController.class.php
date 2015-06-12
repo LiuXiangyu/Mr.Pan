@@ -19,6 +19,7 @@ class CommentController extends Controller{
 			foreach($data as $key => &$value){
 				$value['teacher'] = getTeacherNameById($value['teacher_id']);
 				$value['school'] = getSchoolNameById($value['school_id']);
+				$value['college'] = getCollegeNameById($value["college_id"]);
 				$value['username'] = getUserNameById($value['user_id']);
 				$value['course'] = getCourseNameById($value['course_id']);
 			}
@@ -45,6 +46,7 @@ class CommentController extends Controller{
 			foreach($data as $key => &$value){
 				$value['teacher'] = getTeacherNameById($value['teacher_id']);
 				$value['school'] = getSchoolNameById($value['school_id']);
+				$value['college'] = getCollegeNameById($value["college_id"]);
 				$value['username'] = getUserNameById($value['user_id']);
 				$value['course'] = getCourseNameById($value['course_id']);
 			}
