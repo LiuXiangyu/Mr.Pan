@@ -2,13 +2,16 @@
 /*
 body{margin:0 auto;	text-align:center; font: 12px/1.5 arial; color:#242424;background:#212222;}
 */
+.content p{margin:8px 0px 8px;}
+.time a{color:#999;}
+.time a:hover{color:#0767c8;}
 div{text-align:left;}
 :focus{outline:none;}
 h4,h3,h2,h1{font-size:14px; margin:0;}
 form,ul,ol,dl,dd,p{margin:0; padding:0;}
 li{list-style-type:none;}
 img{border:none; vertical-align:middle;}
-a{color:#f27f02; text-decoration:none;}
+a{color:#00FFEC; text-decoration:none;}
 a:hover{text-decoration:underline;}
 sup{vertical-align:text-top;}
 sub{vertical-align:text-bottom;}
@@ -31,7 +34,7 @@ table{border-collapse:collapse; border-spacing:0;}
 .blue{
 	color:#0057b0!important;
 }
-b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
+b{font-weight:normal; display:inline-block; margin:0 8px; color:#00FFEC;}
 /* for margin & padding | width & height =================== */
 .mb10{
 	margin-bottom:10px;
