@@ -26,6 +26,7 @@ document.write('<html>'+
               '<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i>' + user_name + '<b class="caret"></b></a>'+
               '<ul class="dropdown-menu">'+
                             '<li><a href=' + user_manage_url +'><i class="glyphicon glyphicon-user"></i> 用户管理</a></li>'+
+                            '<li><a href=' + all_comments_url +'><i class="glyphicon glyphicon-cog"></i> 所有评论</a></li>'+
                             '<li><a href=' + comment_manage_url +'><i class="glyphicon glyphicon-cog"></i> 举报管理</a></li>'+
                             '<li><a href=' + show_info_url +'><i class="glyphicon glyphicon-edit"></i> 我的信息</a></li>'+
                         '</ul>'+

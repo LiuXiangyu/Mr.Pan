@@ -113,6 +113,45 @@ class AdminController extends Controller{
 	}
 
 	/*
+		列出所有用户的评论
+	*/
+	public function allComments(){
+		if (isLogin() and $_SESSION["user_level"] == 2){
+			//$report = M("InfoReport");
+			$comment = M("InfoComment");
+			$commentIds = $comment->select();
+
+			$data = array();
+
+			foreach($commentIds as $value){
+				$comment_id = $value["comment_id"];
+				$comment_data = $comment->where("comment_id='$comment_id'")->find();
+
+				$comment_data['teacher'] = getTeacherNameById($comment_data['teacher_id']);
+				$comment_data['school'] = getSchoolNameById($comment_data['school_id']);
+				$comment_data['username'] = getUserNameById($comment_data['user_id']);
+				$comment_data['course'] = getCourseNameById($comment_data['course_id']);
+				$comment_data['college'] = getCollegeNameById($comment_data['college_id']);
+
+				$tmp = $comment_data;
+				$tmp["user_id"] = $value["user_id"];
+				array_push($data, $tmp);
+			}
+
+			$this->assign("data", $data);
+
+			$this->display();
+		}
+		else if (!isLogin()){
+			$this->error("请先登录", U("Home/User/login"));
+		}
+		else{
+			$this->error("您的权限不够");
+		}
+	}
+
+
+	/*
 		列出所有被举报的评论
 	*/
 	public function manageComment(){
