@@ -47,6 +47,11 @@ body {
 	text-decoration: none;
 }
 
+.logo a:hover {
+	color: rgb(156, 242, 242);
+	text-decoration: none;
+}
+
 .username {
 	position: relative;
 	top: 15px;
