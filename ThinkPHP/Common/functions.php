@@ -1062,6 +1062,7 @@ function is_ssl() {
 function redirect($url, $time=0, $msg='') {
     //多行URL地址支持
     $url        = str_replace(array("\n", "\r"), '', $url);
+    header("Content-type:text/html;charset=utf-8");
     if (empty($msg))
         $msg    = "系统将在{$time}秒之后自动跳转到{$url}！";
     if (!headers_sent()) {

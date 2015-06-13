@@ -29,20 +29,16 @@ class IndexController extends Controller {
 				$data["teacher_id"] = I("teacher_id");
 				$data["course_id"] = I("course_id");
 				$data["user_id"] = session("user_id");
-				$data["comment_content"] = I("comment_content");
-				if ($data["comment_content"] == ">请填写评论..")
-					$data["comment_content"] = "";
-				//$teacher = D("InfoTeacher");
-				//$add_result = $teacher->addTeacher($data); //把新纪录插入数据库
+				$data["comment_content"] = trim(I("comment_content"));
+		
 				$comment = D("InfoComment");
-				
 				$add_result = $comment->addComment($data);
 
 				if ($add_result){ //判断插入是否成功
 					$this->success("创建成功");
 				}
-				else{
-					$this->error($comment->getError());
+				else{ //插入失败，重定向到原界面
+					$this->redirect('Index/index', array(), 2, $comment->getError());
 				}
 			}
 			else{

@@ -13,7 +13,6 @@ class InfoCommentModel extends Model{
 		array('comment_time', 'require', '发表时间获取出错'),
 		array('comment_content', 'require', '评论内容不能为空'),
 		array('comment_content', '1,500', '评论内容不能超过500字数', self::EXISTS_VALIDATE, 'length'),
-
 	);
 
 	public function transform($result) {
