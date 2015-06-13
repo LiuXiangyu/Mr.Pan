@@ -32,10 +32,10 @@ class InfoUserModel extends Model{
 	*/
 	public function login($data){
 		$user_email = $data["user_email"];
-		$user_pwd = $data["use_pwd"];
+		$user_pwd = $data["user_pwd"];
 		$result = $this->where("user_email='$user_email'")->find();
 		if (is_array($result) && !empty($result)){
-			if ($result["user_pw"] == $user_pw && $result['status'] != 0){
+			if ($result["user_pwd"] == $user_pwd && $result['status'] != 0){
 				session('user_name', $result["user_name"]);
 				session("user_id", $result["user_id"]);
 				session("user_level", $result["user_level"]);
