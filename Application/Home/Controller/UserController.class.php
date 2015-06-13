@@ -42,8 +42,9 @@ class UserController extends Controller{
 		$user->logout();
 		$this->success("注销成功", U("Home/Index/index"));
 	}
+
 	/*
-		用户注册
+		用户注册，注册完后需到中大邮箱进行激活
 		@param  POST
 			user_name
 			user_email
@@ -80,6 +81,9 @@ class UserController extends Controller{
 		}	
 	}
 
+	/*
+		激活注册用户
+	*/
 	public function active(){
 		if (IS_GET){
 			$verify_code = I("verify_code");
@@ -97,7 +101,9 @@ class UserController extends Controller{
 	}
 
 	
-
+	/*	
+		显示当前用户个人信息
+	*/
 	public function showInfo(){
 		if (isLogin()){
 			$user_id = $_SESSION["user_id"];
@@ -114,6 +120,10 @@ class UserController extends Controller{
 		}
 	}
 
+	/*
+		修改个人信息
+		只能修改用户名和密码
+	*/
 	public function updateInfo(){
 		if (isLogin()){
 			$user = D("InfoUser");
@@ -124,43 +134,6 @@ class UserController extends Controller{
 				$data["user_id"] = $_SESSION['user_id'];
 				$data["user_name"] = I("user_name");
 				$data["user_pwd"] = I("user_pwd");
-				$data["user_email"] = I("user_email");
-
-				$tmp = I("schoolname");
-				//$tmp1 = (strstr($tmp, '武大') != null);
-				//echo $tmp1;
-				if ($tmp === "武汉大学") {
-					$data["school_id"] = 1;
-				}
-				else if ($tmp === "华南理工大学") {
-					$data["school_id"] = 2;
-				}
-				else if ($tmp === "中山大学") {
-					$data["school_id"] = 3;
-				}
-					
-				$tmp1 = I("collegename");
-				if ($tmp1 === "软件学院") {
-					$data["college_id"] = 1;
-				}
-				else if ($tmp1 === "信息科学与技术学院") {
-					$data["college_id"] = 2;
-				}
-				else if ($tmp1 === "传播与设计学院") {
-					$data["college_id"] = 3;
-				}
-				else if ($tmp1 === "工学院") {
-					$data["college_id"] = 4;
-				}
-				else if ($tmp1 === "外国语学院") {
-					$data["college_id"] = 5;
-				}
-				else if ($tmp1 === "计算机科学与工程学院") {
-					$data["college_id"] = 6;
-				}
-				else if ($tmp1 === "计算机学院") {
-					$data["college_id"] = 7;
-				}
 				
 				$result = $user->updateInfo($data);
 
@@ -180,6 +153,11 @@ class UserController extends Controller{
 		}
 	}
 
+	/*
+		关注一个用户
+		@param
+			被关注用户的user_id
+	*/
 	public function follow(){
 		if (isLogin()){
 			$data['follow_id'] = I("user_id");
@@ -199,6 +177,28 @@ class UserController extends Controller{
 		}
 	}
 
+	/*
+		取消关注一个用户
+		@param
+			被关注用户的user_id
+	*/
+	public function cancelFollow(){
+		if (isLogin()){
+			$user_id = $_SESSION['user_id'];
+			$follow_id = I('user_id');  //被关注者user_id
+
+			if (M("InfoFollow")->where("user_id='$user_id' and follow_id='$follow_id'")->delete())
+				$this->success("取消关注成功");
+			else
+				$this->error("取消关注失败");
+		}
+		else
+			$this->error("请先登录", U("User/login"));
+	}
+
+	/*
+		获取当前用户关注用户的列表
+	*/
 	public function followList(){
 		if (isLogin()){
 			$user_id = $_SESSION["user_id"];

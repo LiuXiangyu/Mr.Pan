@@ -47,7 +47,8 @@
                 <td><?php echo $value['schoolname']?></td>
               
                 <td>
-                  <a href="__URL__/../Comment/followComment?user_id=<?php  echo $value['follow_id']; ?>" class="btn btn-warning" role="button">查看其全部评论</a>
+                  <a href="__URL__/../Comment/followComment?user_id=<?php  echo $value['follow_id']; ?>" class="btn btn-info" role="button">查看其评论</a>
+                  <a href="__URL__/../User/cancelFollow?user_id=<?php  echo $value['follow_id']; ?>" class="btn btn-warning" role="button">取消关注</a>
                 </td>
               </tr>
           <?php endforeach;?>

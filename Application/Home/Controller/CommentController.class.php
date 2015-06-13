@@ -42,7 +42,6 @@ class CommentController extends Controller{
 			$comment = M("InfoComment");
 			
 			$data = $comment->where("user_id='$user_id'")->select();
-
 			foreach($data as $key => &$value){
 				$value['teacher'] = getTeacherNameById($value['teacher_id']);
 				$value['school'] = getSchoolNameById($value['school_id']);
