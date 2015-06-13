@@ -44,3 +44,7 @@ body {
 #login, #newuser, #login1{
 margin-bottom: 5%;
 }
+
+.form-group button {
+    width: 80px;
+}
