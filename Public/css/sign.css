@@ -41,8 +41,6 @@ body {
     display: none;
 }
 
-#login, #newuser{
-    margin-top:10px;
-    font-size:18px;
-    width:280px;
+#login, #newuser, #login1{
+margin-bottom: 5%;
 }
