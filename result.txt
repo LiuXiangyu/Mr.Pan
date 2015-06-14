@@ -1,0 +1,1 @@
+user_id 1#user_level 1#user_email 123@qq.com#user_pwd 123456#user_name lcc123#school_id 3#college_id 1#verify_code d63a4720fb176227a6be385323485eea#reg_time 2015-06-07#status 1#

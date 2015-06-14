@@ -33,7 +33,53 @@ class InfoUserModel extends Model{
 	public function login($data){
 		$user_email = $data["user_email"];
 		$user_pwd = $data["user_pwd"];
-		$result = $this->where("user_email='$user_email'")->find();
+
+		  // Cache Operation
+    	$redis = new \Redis();
+    	$redis ->connect('localhost', '6379');
+    	$users = $redis ->keys('user_info:*');
+
+    	$isCached = false;
+
+    	foreach ($users as $user) {
+     		$record = $redis ->hgetall($user);
+
+      		if ($record['user_email'] == $user_email) {
+        		$isCached = true;
+        		break;
+      		}
+    	}
+
+    	if ($isCached) {
+      		$result = array('user_id' =>substr($record, strlen('user_info:')),
+        	'user_level' =>$record['user_level'],
+        	'user_email' =>$record['user_email'],
+        	'user_pwd' =>$record['user_pwd'],
+        	'user_name' =>$record['user_name'],
+        	'school_id' =>$record['school_id'],
+        	'college_id' =>$record['college_id'],
+        	'verify_code' =>$record['verify_code'],
+        	'reg_time' =>$record['reg_time'],
+        	'status' =>$record['status']);
+    	} else {
+      		$result = $this->where("user_email='$user_email'")->find();
+      		if($result['status'] != 0) {
+	      		$redis ->hmset('user_info:'.(strval($result['user_id'])), array(
+	        	'user_level' =>$result['user_level'],
+	        	'user_email' =>$result['user_email'],
+	        	'user_pwd' =>$result['user_pwd'],
+	        	'user_name' =>$result['user_name'],
+	        	'school_id' =>$result['school_id'],
+	        	'college_id' =>$result['college_id'],
+	        	'verify_code' =>$result['verify_code'],
+	        	'reg_time' =>$result['reg_time'],
+	        	'status' =>$result['status']));
+      		} else {
+      			$redis->del('user_info:');
+      		}
+    	}
+
+		
 		if (is_array($result) && !empty($result)){
 			if ($result["user_pwd"] == $user_pwd && $result['status'] != 0){
 				session('user_name', $result["user_name"]);
@@ -107,12 +153,14 @@ class InfoUserModel extends Model{
 	public function active($verify_code){
 		$data = $this->where("verify_code='$verify_code'")->find();
 		if (!empty($data)){
+
 			$user_id = $data['user_id'];
 			if ($data['status'] == 0){
 				$current_time = date("Y-m-d H:i:s", strtotime("-1 day"));
 				if ($data['reg_time'] < $current_time){
 					$this->error = "您的激活有效期已过，请重新注册发送激活邮件";
 					$this->where("user_id='$user_id'")->delete();
+
 					return false;
 				}
 				else{

@@ -108,7 +108,31 @@ class UserController extends Controller{
 		if (isLogin()){
 			$user_id = $_SESSION["user_id"];
 			$user = M("InfoUser");
-			$data = $user->where("user_id='$user_id'")->find();
+
+			$redis = new \Redis();
+			$redis->connect('localhost','6379');
+			$isCached = false;
+
+			if($redis->hexists('user_info:'.strval($user_id),'0') != "") {
+				$isCached = true;
+			}
+
+			if($isCached) {
+				$data = $redis->hgetall('user_info:'.strval($user_id));
+			} else {
+				$data = $user->where("user_id='$user_id'")->find();
+				$redis->hmset('user_info:'.strval($data['user_id']),array(
+					'user_level' =>$data['user_level'],
+					'user_email' =>$data['user_email'],
+					'user_pwd' =>$data['user_pwd'],
+					'user_name' =>$data['user_name'],
+					'school_id' =>$data['school_id'],
+					'college_id' =>$data['college_id'],
+					'verify_code' =>$data['verify_code'],
+					'reg_time' =>$data['reg_time'],
+					'status' =>$data['status']));
+			}
+
 			$data["schoolname"] = getSchoolNameById($data["school_id"]);
 			$data["collegename"] = getCollegeNameById($data["college_id"]);
 			//dump($data);
@@ -138,6 +162,20 @@ class UserController extends Controller{
 				$result = $user->updateInfo($data);
 
 				if ($result){
+					$redis = new \Redis();
+					$redis->connect('localhost','6379');
+					$isCached = false;
+
+					if($redis->hexists('user_info:'.strval($data["user_id"]),'0') != "") {
+						$isCached = true;
+					}
+
+					if($isCached) {
+						$redis->hmset('user_info:'.strval($data["user_id"]),array(
+							'user_name' => $data["user_name"],
+							'user_pwd' => $data["user_pwd"]));
+					}
+
 					$this->success("修改成功", U("User/showInfo"));
 				}
 				else{

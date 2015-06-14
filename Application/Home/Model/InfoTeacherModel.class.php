@@ -52,7 +52,43 @@ class InfoTeacherModel extends Model{
 	*/
 
 	public function getTeacher($school_id, $college_id) {
-		$result = $this->where("school_id='$school_id' AND college_id='$college_id'")->field('teacher_id')->select();
+		$redis = new \Redis();
+		$redis->connect('localhost','6379');
+		//$teacherIds = $redis->keys(strval($school_id).':'.strval($college_id));
+
+		$isCached = false;
+
+		if($redis->hexists(strval($school_id).':'.strval($college_id),'0') != "") {
+			$isCached = true;
+		}
+
+		if($isCached) {
+			$temps = $redis->hgetall(strval($school_id).':'.strval($college_id));
+			$result = array();
+			foreach ($temps as $key => $id) {
+				$temp2['teacher_id'] = $id;
+				array_push($result, $temp2);
+			}
+			
+            /*$file = fopen('result.txt', 'w');
+		    foreach ($result as $key => $value) {
+		    	foreach($value as $n => $id) {
+              		fwrite($file, $key.' '.$n.' '.$id);
+              	}
+		    }
+			fclose($file);*/
+
+		} else {
+			$result = $this->where("school_id='$school_id' AND college_id='$college_id'")->field('teacher_id')->select();
+			$teachersIds = array();
+			foreach($result as $m => $record){
+				foreach($record as $n => $id) {
+					array_push($teachersIds,$id);
+				}
+			}
+			$redis->hmset(strval($school_id).':'.strval($college_id),$teachersIds);
+		}
+
 
 		if(is_array($result)) {
 			$teachers = array();
@@ -73,7 +109,36 @@ class InfoTeacherModel extends Model{
 	}
 
 	public function getCourse($school_id, $college_id, $teacher_id) {
-		$result = $this->where("school_id='$school_id' AND college_id='$college_id' AND teacher_id='$teacher_id'")->find();
+		$redis = new \Redis();
+		$redis->connect('localhost','6379');
+
+		$isCached = false;
+
+		if($redis->hexists(strval($school_id).':'.strval($college_id).':'.strval($teacher_id),'0') != "") {
+			$isCached = true;
+		}
+
+		if($isCached) {
+			$result = $redis->hgetall(strval($school_id).':'.strval($college_id).':'.strval($teacher_id));
+		} else {
+			$result = $this->where("school_id='$school_id' AND college_id='$college_id' AND teacher_id='$teacher_id'")->find();
+			//$redis->set("inf",$result);
+			/*$file = fopen('result.txt', 'w');
+		    foreach ($result as $key => $value) {
+		    	foreach($value as $n => $id) {
+              		fwrite($file, $key.' '.$n.' '.$id);
+              	}
+              	fwrite($file, $key.' '.$value.'#');
+		    }
+			fclose($file);*/
+			$redis->hmset(strval($school_id).':'.strval($college_id).':'.strval($teacher_id),array(
+				'teacher_id' => $result['teacher_id'],
+				'teacher_name' => $result['teacher_name'],
+				'school_id' => $result['school_id'],
+				'college_id' => $result['college_id'],
+				'teacher_course' => $result['teacher_course']
+				));
+		}
 
 		if(is_array($result)) {
 			$courses = array();
