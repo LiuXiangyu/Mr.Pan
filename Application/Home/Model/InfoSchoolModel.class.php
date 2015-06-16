@@ -27,7 +27,7 @@ class InfoSchoolModel extends Model{
 
 		$isCached = false;
 
-		if($redis->hexists(strval($school_id),'0') != "") {
+		if($redis->hexists(strval($school_id),'school_id') != "" | $redis->hexists(strval($school_id),'school_id') != 0) {
 			$isCached = true;
 		}
 
