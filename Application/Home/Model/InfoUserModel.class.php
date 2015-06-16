@@ -52,6 +52,7 @@ class InfoUserModel extends Model{
 
     	if ($isCached) {
       		$result = array('user_id' =>substr($record, strlen('user_info:')),
+      		'user_id' => $record['user_id'],
         	'user_level' =>$record['user_level'],
         	'user_email' =>$record['user_email'],
         	'user_pwd' =>$record['user_pwd'],
@@ -65,6 +66,7 @@ class InfoUserModel extends Model{
       		$result = $this->where("user_email='$user_email'")->find();
       		if($result['status'] != 0) {
 	      		$redis ->hmset('user_info:'.(strval($result['user_id'])), array(
+	      		'user_id' => $result['user_id'],
 	        	'user_level' =>$result['user_level'],
 	        	'user_email' =>$result['user_email'],
 	        	'user_pwd' =>$result['user_pwd'],

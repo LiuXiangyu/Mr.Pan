@@ -122,6 +122,7 @@ class UserController extends Controller{
 			} else {
 				$data = $user->where("user_id='$user_id'")->find();
 				$redis->hmset('user_info:'.strval($data['user_id']),array(
+					'user_id' => $user_id,
 					'user_level' =>$data['user_level'],
 					'user_email' =>$data['user_email'],
 					'user_pwd' =>$data['user_pwd'],
